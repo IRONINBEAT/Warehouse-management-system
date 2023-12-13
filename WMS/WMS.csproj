@@ -7,4 +7,31 @@
         <UseWPF>true</UseWPF>
     </PropertyGroup>
 
+    <ItemGroup>
+        <Folder Include="app\view_model\"/>
+        <Folder Include="data\data_set\"/>
+        <Folder Include="data\repository\"/>
+        <Folder Include="domain\use_case\"/>
+    </ItemGroup>
+
+    <ItemGroup>
+        <ApplicationDefinition Include="app\view\App.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <XamlRuntime>Wpf</XamlRuntime>
+            <SubType>Designer</SubType>
+        </ApplicationDefinition>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Page Update="app\view\MainWindow.xaml">
+            <Generator>MSBuild:Compile</Generator>
+            <XamlRuntime>Wpf</XamlRuntime>
+            <SubType>Designer</SubType>
+        </Page>
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="ZXing.Net" Version="0.16.9"/>
+    </ItemGroup>
+
 </Project>
