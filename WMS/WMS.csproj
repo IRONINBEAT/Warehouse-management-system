@@ -9,9 +9,6 @@
 
     <ItemGroup>
         <Folder Include="app\view_model\"/>
-        <Folder Include="data\data_set\"/>
-        <Folder Include="data\repository\"/>
-        <Folder Include="domain\use_case\"/>
     </ItemGroup>
 
     <ItemGroup>
@@ -31,6 +28,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="System.Reactive" Version="6.0.1-preview.1" />
         <PackageReference Include="ZXing.Net" Version="0.16.9"/>
     </ItemGroup>
 
