@@ -8,17 +8,24 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="800" Width="1400" WindowStartupLocation="CenterScreen">
     <Grid Background="#34465D">
+        
         <StackPanel Margin="20">
-            <TextBlock Text="ФИО текущео пользователя" Foreground="Azure"/>
-            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 12 0 0" Content="Личный кабинет"/> 
+            <TextBlock Text="Воронин Илья Петрович" Foreground="Azure"/>
+            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 12 0 0" Content="Личный кабинет">
+                <Button.Background>
+                    <SolidColorBrush Color="#6c5fe3" />
+                </Button.Background>
+            </Button>
         </StackPanel>
-        <Border MinWidth="400" Margin="50" Background="#DCDCDC" VerticalAlignment="Center" HorizontalAlignment="Left" Padding="30" MaxWidth="650" CornerRadius="20">
+        <Border MinWidth="400" Width="550" Height="550" Margin="50 100 0 0 " Background="#DCDCDC" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20" MaxWidth="650" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel >
-                <TextBlock Text="Список товаров" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
-                <ListView x:Name="listOfProducts" Margin="10" />
+                <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10">
+                    <TextBlock Text="Список товаров" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
+                </Border>
+                <ListView x:Name="listOfProducts" Margin="10" Height="375"/>
             </StackPanel>
         </Border>
         <Border  Width="550" MaxHeight="500" Margin="50" Background="#DCDCDC" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="30" CornerRadius="20">
@@ -35,7 +42,7 @@
                 </StackPanel> 
             </Grid>
         </Border>
-        <Border  Width="550" MaxHeight="500" Margin="0 145 50 0" Background="#6c5fe3" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="30" CornerRadius="20">
+        <Border  Width="550" Height="280" Margin="0 145 50 0" Background="#6c5fe3" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="20" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
@@ -80,7 +87,7 @@
                     <TextBlock FontSize="20"></TextBlock>
                     <TextBlock FontSize="20"></TextBlock>
                     <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock Margin="0 10 0 0" FontWeight="Bold" FontSize="20" Foreground="Azure" Text=" Описание товара" TextAlignment="Center"></TextBlock>
+                    <TextBlock Margin="0 10 0 0" FontWeight="Bold" FontSize="20" Foreground="Azure" Text="Краткое описание товара" TextAlignment="Center"></TextBlock>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock FontSize="20"></TextBlock>
@@ -88,7 +95,15 @@
                     <TextBlock FontSize="20"></TextBlock>
                     <TextBlock FontSize="20"></TextBlock>
                     <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock Margin="0 10 0 0" TextWrapping="Wrap" FontSize="15" Foreground="Azure" Text=" Ручные режущие инструменты. Ножницы состоят из пары металлических лезвий, повернутых так, что заостренные края скользят друг по другу, когда ручки (смычки), противоположные шарниру, закрыты." TextAlignment="Center"></TextBlock>
+                    <Border Margin="0 15 0 0 " Height="90" BorderBrush="Black" BorderThickness="1"> 
+                        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="90">
+                            <TextBlock  TextWrapping="Wrap"  FontSize="15" Foreground="Azure" TextAlignment="Center">
+                                Ручные режущие инструменты. Ножницы состоят из пары металлических лезвий, повернутых так, что заостренные края скользят друг по другу, когда ручки (смычки), противоположные шарниру, закрыты.
+                            </TextBlock>
+                        </ScrollViewer>
+                    </Border>
+                    
+                    
                 </StackPanel>
             </Grid>
         </Border>
@@ -103,9 +118,18 @@
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel VerticalAlignment="Center">
-                <Button Content="Отслеживать товар" Margin="0 0 0 50 "/>
-                <Button Content="Отгрузить товар клиенту" Margin="0 0 0 50 "/>
-                <Button Content="Списать товар"/>
+                <Button Content="Отслеживать товар" Margin="0 0 0 50">
+                    <Button.Background>
+                        <SolidColorBrush Color="#6c5fe3" />
+                    </Button.Background>
+                </Button>
+                <Button Margin="0 0 0 50"  Content="Отгрузить товар клиенту" Style="{StaticResource MaterialDesignOutlinedButton}">
+                </Button>
+                <Button Content="Списать товар" Style="{StaticResource MaterialDesignRaisedButton}">
+                    <Button.Background>
+                        <SolidColorBrush Color="DarkRed" />
+                    </Button.Background>
+                </Button>
             </StackPanel>
         </Border>
     </Grid>

@@ -61,7 +61,11 @@
                         <TextBox Width="50" />
                     </StackPanel>
                 </StackPanel>
-                <Button Content="Добавить" Margin="0 20"/>
+                <Button Content="Добавить" Margin="0 20">
+                    <Button.Background>
+                        <SolidColorBrush Color="#6c5fe3" />
+                    </Button.Background>
+                </Button>
             </StackPanel>
         </Border> 
     </Grid>
