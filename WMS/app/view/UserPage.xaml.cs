@@ -2,9 +2,9 @@
 
 namespace WMS.app.view;
 
-public partial class MainWindow : Window
+public partial class UserPage : Window
 {
-    public MainWindow()
+    public UserPage()
     {
         InitializeComponent();
     }

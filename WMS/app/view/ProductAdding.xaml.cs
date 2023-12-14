@@ -2,9 +2,9 @@
 
 namespace WMS.app.view;
 
-public partial class MainWindow : Window
+public partial class ProductAdding : Window
 {
-    public MainWindow()
+    public ProductAdding()
     {
         InitializeComponent();
     }

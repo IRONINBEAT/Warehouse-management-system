@@ -20,15 +20,12 @@
     </ItemGroup>
 
     <ItemGroup>
-        <Page Update="app\view\MainWindow.xaml">
-            <Generator>MSBuild:Compile</Generator>
-            <XamlRuntime>Wpf</XamlRuntime>
-            <SubType>Designer</SubType>
-        </Page>
-    </ItemGroup>
-
-    <ItemGroup>
+        <PackageReference Include="MaterialDesignColors" Version="3.0.0-ci478" />
+        <PackageReference Include="MaterialDesignThemes" Version="5.0.0-ci478" />
+        <PackageReference Include="MaterialDesignThemes.MahApps" Version="3.0.0-ci478" />
         <PackageReference Include="System.Reactive" Version="6.0.1-preview.1" />
+        <PackageReference Include="Xceed.Products.Wpf.Toolkit.AvalonDock" Version="4.6.23520.1445" />
+        <PackageReference Include="Xceed.Products.Wpf.Toolkit.Full" Version="4.6.23520.1445" />
         <PackageReference Include="ZXing.Net" Version="0.16.9"/>
     </ItemGroup>
 
