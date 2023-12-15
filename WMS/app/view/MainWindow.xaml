@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WMS.app.view"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="MainWindow" Height="800" Width="1400" WindowStartupLocation="CenterScreen">
+        Title="Учёт товара" Height="800" Width="1400" WindowStartupLocation="CenterScreen">
     <Grid Background="#34465D">
         
         <StackPanel Margin="20">
@@ -17,7 +17,12 @@
                 </Button.Background>
             </Button>
         </StackPanel>
-        <Border MinWidth="400" Width="550" Height="550" Margin="50 100 0 0 " Background="#DCDCDC" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20" MaxWidth="650" CornerRadius="20">
+        <Button VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 100 320 0" Content="Добавить товар">
+            <Button.Background>
+                <SolidColorBrush Color="#2a9d6f" />
+            </Button.Background>
+        </Button>
+        <Border MinWidth="400" Width="550" Height="550" Margin="50 150 0 0 " Background="#DCDCDC" VerticalAlignment="Top" HorizontalAlignment="Left" Padding="20" MaxWidth="650" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
@@ -25,7 +30,7 @@
                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10">
                     <TextBlock Text="Список товаров" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
                 </Border>
-                <ListView x:Name="listOfProducts" Margin="10" Height="375"/>
+                <ListView x:Name="listOfProducts" Margin="0 20 0 0" Height="460"/>
             </StackPanel>
         </Border>
         <Border  Width="550" MaxHeight="500" Margin="50" Background="#DCDCDC" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="30" CornerRadius="20">
@@ -95,7 +100,10 @@
                     <TextBlock FontSize="20"></TextBlock>
                     <TextBlock FontSize="20"></TextBlock>
                     <TextBlock FontSize="20"></TextBlock>
-                    <Border Margin="0 15 0 0 " Height="90" BorderBrush="Black" BorderThickness="1"> 
+                    <Border Margin="0 15 0 0 " Height="90" BorderBrush="Azure" BorderThickness="1">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="25" Color="MidnightBlue" ShadowDepth="10"/>
+                        </Border.Effect> 
                         <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="90">
                             <TextBlock  TextWrapping="Wrap"  FontSize="15" Foreground="Azure" TextAlignment="Center">
                                 Ручные режущие инструменты. Ножницы состоят из пары металлических лезвий, повернутых так, что заостренные края скользят друг по другу, когда ручки (смычки), противоположные шарниру, закрыты.

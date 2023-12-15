@@ -7,8 +7,11 @@
         xmlns:local="clr-namespace:WMS.app.view"
         mc:Ignorable="d"
         Title="Авторизация" Height="600" Width="1000"
-        WindowStartupLocation="CenterScreen" WindowState="Maximized">
-    <Grid Background="#34465D"> 
+        WindowStartupLocation="CenterScreen">
+    <Grid Background="#34465D">
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 30 0 0">
+            <TextBlock Text="Добро пожаловать!" FontSize="30" FontWeight="Bold" Foreground="Azure"></TextBlock>
+        </StackPanel> 
         <Border MinWidth="400" Margin="15" Background="#DCDCDC" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>

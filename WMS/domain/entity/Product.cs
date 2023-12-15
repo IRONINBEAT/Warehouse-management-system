@@ -20,4 +20,5 @@ public class Product
     public string name;
     public ProductType productType;
     public QRCode qrCode;
+    public double netWeight;
 }

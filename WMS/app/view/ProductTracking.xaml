@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:WMS.app.view"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="ProductTracking" Height="600" Width="500" WindowStartupLocation="CenterScreen">
+        Title="Отслеживание товара" Height="600" Width="500" WindowStartupLocation="CenterScreen">
     <Grid Background="#34465D">
         <Border MinWidth="400" Width="400" Height="500"  Background="#DCDCDC" VerticalAlignment="Center" HorizontalAlignment="Center" Padding="20" MaxWidth="650" CornerRadius="20">
             <Border.Effect>
@@ -24,7 +24,7 @@
                         </StackPanel> 
                     </Grid>
                 </Border>
-                <ListView x:Name="listOfProducts" Margin="10" Height="375"/>
+                <ListView x:Name="TrackingProductListView" Margin="10" Height="375"/>
             </StackPanel>
         </Border>
     </Grid>

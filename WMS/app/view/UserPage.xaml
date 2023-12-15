@@ -6,16 +6,47 @@
         xmlns:local="clr-namespace:WMS.app.view"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
-        Title="UserPage" Height="450" Width="800">
+        Title="Личный кабинет" Height="515" Width="800" WindowStartupLocation="CenterScreen">
     <Grid Background="#34465D"> 
-        <Border  Background="#DCDCDC" VerticalAlignment="Top" >
+        <Border  Background="CornflowerBlue" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="5" CornerRadius="30">
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
-            <StackPanel>
-                <TextBlock Text="Личный кабинет" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" TextAlignment="Center"/>
-                </StackPanel>
+            <TextBlock Text="Личный кабинет" Foreground="Azure" FontSize="30" FontWeight="Bold" Margin="20" TextAlignment="Center"/>
         </Border>
-        
+        <Border  Background="#DCDCDC" Width="700" Margin="0 120 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="20" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid>
+                <TextBlock Text="Воронин Илья Петрович" FontSize="25" TextAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 40 0 0">
+                    <TextBlock Text="Должность: " FontSize="15"/>
+                    <TextBlock Text="Старший кладовщик" FontSize="15"  Margin="5 0 0 0"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+        <Border  Background="#bdd0c8" Width="700" Margin="0 230 0 0" VerticalAlignment="Top" HorizontalAlignment="Center" Padding="20" CornerRadius="30">
+            <Border.Effect>
+                <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
+            </Border.Effect>
+            <Grid Height="180">
+                <StackPanel VerticalAlignment="Top">
+                    <TextBlock Margin="0 0 0 5" VerticalAlignment="Center" Text="Акт приёма-передачи"/>
+                    <Button Content="Открыть" HorizontalAlignment="Left"></Button>
+                </StackPanel>
+                
+                <StackPanel VerticalAlignment="Center">
+                    <TextBlock Margin="0 0 0 5" VerticalAlignment="Center" Text="Квитанция клиенту"/>
+                    <Button Content="Открыть" HorizontalAlignment="Left"></Button>
+                </StackPanel>
+                
+                <StackPanel VerticalAlignment="Bottom">
+                    <TextBlock Margin="0 0 0 5" VerticalAlignment="Center" Text="Накладная на передачу готовой продукции"/>
+                    <Button Content="Открыть" HorizontalAlignment="Left"></Button>
+                </StackPanel>
+            </Grid>
+            
+        </Border>
     </Grid>
 </Window>
