@@ -8,10 +8,6 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Folder Include="app\view_model\"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <ApplicationDefinition Include="app\view\App.xaml">
             <Generator>MSBuild:Compile</Generator>
             <XamlRuntime>Wpf</XamlRuntime>
@@ -24,7 +20,10 @@
         <PackageReference Include="MaterialDesignColors" Version="3.0.0-ci478" />
         <PackageReference Include="MaterialDesignThemes" Version="5.0.0-ci478" />
         <PackageReference Include="MaterialDesignThemes.MahApps" Version="3.0.0-ci478" />
-        <PackageReference Include="System.Reactive" Version="6.0.1-preview.1" />
+        <PackageReference Include="NuGet.Protocol" Version="6.8.0" />
+        <PackageReference Include="ReactiveUI.Fody" Version="19.5.31" />
+        <PackageReference Include="ReactiveUI.WPF" Version="19.5.31" />
+        <PackageReference Include="Splat" Version="14.8.12" />
         <PackageReference Include="Xceed.Products.Wpf.Toolkit.AvalonDock" Version="4.6.23520.1445" />
         <PackageReference Include="Xceed.Products.Wpf.Toolkit.Full" Version="4.6.23520.1445" />
         <PackageReference Include="ZXing.Net" Version="0.16.9"/>

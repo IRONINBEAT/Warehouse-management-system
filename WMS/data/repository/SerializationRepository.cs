@@ -29,10 +29,10 @@ public abstract class SerializationRepository<T>
         _stream.Flush();
         JsonSerializer.SerializeAsync(_stream, obj, _options);
         _stream.Close();
-        EntitiesSubject.OnNext(obj);
+        //EntitiesSubject.OnNext(obj);
     }
 
-    private List<T> Deserialize()
+    protected List<T> Deserialize()
     {
         _stream = GetStream();
         var list = JsonSerializer.Deserialize<List<T>>(_stream, _options);

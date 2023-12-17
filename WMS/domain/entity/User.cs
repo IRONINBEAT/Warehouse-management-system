@@ -4,19 +4,29 @@ namespace WMS.domain.entity;
 
 public class User
 {
-    private Role _role;
-    public int id;
-    public string login;
+    public User(int id, string login, string name, string password, string patronymic, string surName )
+    {
+        ID = id;
+        Login = login;
+        Name = name;
+        Password = password;
+        Patronymic = patronymic;
+        SurName = surName;
+    }
+    
+    public int ID { get; private set; }
+    public string Login { get; private set; }
 
 
-    public string name;
-    public string pasword;
-    public string patronymic;
-    public string surName;
-    public Role Role { get; }
+    public string Name { get; private set; }
+    public string Password { get; private set; }
+    public string Patronymic { get; private set; }
+    public string SurName { get; private set; }
+    
+    public Role Role { get; private set; }
 
     public void ChangeRole(Role newRole)
     {
-        _role = newRole;
+        Role = newRole;
     }
 }

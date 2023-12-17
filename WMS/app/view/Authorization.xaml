@@ -1,29 +1,51 @@
-﻿<Window x:Class="WMS.app.view.Authorization"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:local="clr-namespace:WMS.app.view"
-        mc:Ignorable="d"
-        Title="Авторизация" Height="600" Width="1000"
-        WindowStartupLocation="CenterScreen">
+﻿<rxui:ReactiveWindow x:TypeArguments="viewModels:AuthorizationViewModel" x:Class="WMS.app.view.Authorization"
+                     xmlns:viewModels="clr-namespace:WMS.app.view_model"
+                     xmlns:rxui="http://reactiveui.net"
+                     xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+                     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                     xmlns:local="clr-namespace:WMS.app.view"
+                     xmlns:reactiveUi="http://reactiveui.net"
+                     mc:Ignorable="d"
+                     Title="Система складского учёта" Height="600" Width="1000"
+                     WindowStartupLocation="CenterScreen" WindowState="Maximized">
+    <Window.DataContext>
+        <viewModels:AuthorizationViewModel />
+    </Window.DataContext>
     <Grid Background="#34465D">
-        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 30 0 0">
-            <TextBlock Text="Добро пожаловать!" FontSize="30" FontWeight="Bold" Foreground="Azure"></TextBlock>
-        </StackPanel> 
-        <Border MinWidth="400" Margin="15" Background="#DCDCDC" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
-            <Border.Effect>
-                <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
-            </Border.Effect>
-            <StackPanel>
-                <TextBlock Text="Авторизация" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" TextAlignment="Center"/>
-                <TextBox materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
-                <PasswordBox materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
-                <Button Content="Войти" Margin="0 10">
-                </Button>
-                <Button HorizontalAlignment="Center" FontSize="13" Content="Забыли пароль?" Style="{StaticResource MaterialDesignFlatButton}"/>
-            </StackPanel>
-        </Border>
+        <reactiveUi:RoutedViewHost 
+            Grid.Row="0" 
+            x:Name="RoutedViewHost"
+            Router="{Binding Router}"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch" >
+            <rxui:RoutedViewHost.DefaultContent>
+                <Grid>
+                    <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0 30 0 0">
+                        <TextBlock Text="Добро пожаловать!" FontSize="30" FontWeight="Bold" Foreground="Azure"></TextBlock>
+                    </StackPanel> 
+                    <Border MinWidth="400" Margin="15" Background="#DCDCDC" VerticalAlignment="Center" Padding="30" MaxWidth="550" CornerRadius="20">
+                        <Border.Effect>
+                            <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
+                        </Border.Effect>
+                        <StackPanel>
+                            <TextBlock Text="Авторизация" FontSize="30" FontWeight="Bold" Margin="0 0 0 20" TextAlignment="Center"/>
+                            <TextBox Text="{Binding Login}" materialDesign:HintAssist.Hint="Введите логин" Style="{StaticResource MaterialDesignFloatingHintTextBox}"/>
+                            <PasswordBox PasswordChanged="PasswordBox_PasswordChanged" materialDesign:HintAssist.Hint="Введите пароль" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}"/>
+                            <Button Command="{Binding ToNavigate}" Content="Войти" Margin="0 10">
+                            </Button>
+                            <Button Command="{Binding }" HorizontalAlignment="Center" FontSize="13" Content="Забыли пароль?" Style="{StaticResource MaterialDesignFlatButton}"/>
+                        </StackPanel>
+                    </Border>
+                </Grid>
+            </rxui:RoutedViewHost.DefaultContent>
+            <rxui:RoutedViewHost.ViewLocator>
+                <viewModels:AppViewLocator/>
+            </rxui:RoutedViewHost.ViewLocator>
+        </reactiveUi:RoutedViewHost> 
+        
+        
     </Grid>
-</Window>
+</rxui:ReactiveWindow>
