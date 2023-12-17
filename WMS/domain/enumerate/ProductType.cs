@@ -14,3 +14,4 @@ public enum ProductType
     BOOKS_EDUCATION,
     KITCHEN_SUPPLIES
 }
+//переопределить ToString()

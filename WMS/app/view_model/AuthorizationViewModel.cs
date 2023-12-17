@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
 using System.Printing;
 using System.Reactive;
@@ -30,12 +31,29 @@ public class AuthorizationViewModel : ViewModelBase, IRoutableViewModel, IScreen
     {
         ToNavigate = ReactiveCommand.CreateFromObservable(() =>
         {
+            UserRepository _userRepository =
+                new UserRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Users.json");
             UserUseCase _userUseCase =
-                new UserUseCase(
-                    new UserRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Users.json"));
+                new UserUseCase( _userRepository);
+
+            AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
+                new AuthorizedUserRepository(
+                    "C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\AuthorizedUser.json"));
 
             if (IsAuthorized = _userUseCase.Authorize(Login, Password))
+            {
+                List <User> users = _userRepository.Download();
+
+                foreach (var user in users)
+                {
+                    if (user.Login == Login)
+                    {
+                        _authorizationUseCase.SaveUser(user);
+                        break;
+                    }
+                }
                 return Router.Navigate.Execute(new MainWindowViewModel());
+            }
             return Router.Navigate.Execute(new AuthorizationViewModel());
         });
     }

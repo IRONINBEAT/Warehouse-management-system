@@ -4,11 +4,14 @@ namespace WMS.domain.entity;
 
 public class Manufacturer
 {
-    public Address address;
-
-
-    public string companyName;
-    public string email;
-    public int id;
-    public string phoneNumber;
+    public Manufacturer(string companyName)
+    {
+        CompanyName = companyName;
+    }
+    public Address Address { get; set; }
+    
+    public string CompanyName{ get; set; }
+    public string Email{ get; set; }
+    public int Id{ get; set; }
+    public string PhoneNumber{ get; set; }
 }

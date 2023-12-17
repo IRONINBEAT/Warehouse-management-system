@@ -14,7 +14,8 @@ public class UserUseCase : IUser
     {
         _userRepository = userRepository;
     }
-    
+
+
     public void Register(User user)
     {
         //сделать проверку на id

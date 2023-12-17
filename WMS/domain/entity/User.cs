@@ -23,7 +23,7 @@ public class User
     public string Patronymic { get; private set; }
     public string SurName { get; private set; }
     
-    public Role Role { get; private set; }
+    public Role Role { get;  set; }
 
     public void ChangeRole(Role newRole)
     {

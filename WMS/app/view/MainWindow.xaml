@@ -14,13 +14,20 @@
         <viewModel:MainWindowViewModel />
     </UserControl.DataContext>
     <Grid Background="#34465D">
-        
-        <StackPanel Margin="20">
+        <rxui:RoutedViewHost
+            Grid.Row="0"
+            x:Name="RoutedViewHost"
+            Router="{Binding Router}"
+            HorizontalContentAlignment="Stretch"
+            VerticalContentAlignment="Stretch">
+            <rxui:RoutedViewHost.DefaultContent>
+                <Grid>
+                    <StackPanel Margin="20">
             <TextBlock Text="Воронин Илья Петрович" Foreground="Azure"/>
             <Button VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 12 0 0" Content="Личный кабинет">
             </Button>
         </StackPanel>
-        <Button VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 100 320 0" Content="Добавить товар">
+        <Button Command="{Binding  AddProduct}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 100 320 0" Content="Добавить товар">
             <Button.Background>
                 <SolidColorBrush Color="#2a9d6f" />
             </Button.Background>
@@ -143,5 +150,13 @@
                 </Button>
             </StackPanel>
         </Border>
+                </Grid>
+            </rxui:RoutedViewHost.DefaultContent>
+            
+            <rxui:RoutedViewHost.ViewLocator>
+                <viewModel:AppViewLocator/>
+            </rxui:RoutedViewHost.ViewLocator>
+            
+        </rxui:RoutedViewHost>
     </Grid>
 </rxui:ReactiveUserControl>
