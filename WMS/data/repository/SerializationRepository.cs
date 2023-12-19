@@ -1,9 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using WMS.domain.entity;
 
 namespace WMS.data.repository;
 
@@ -11,7 +14,16 @@ public abstract class SerializationRepository<T>
 {
     private string _filePath;
     private Stream? _stream;
+    
+    protected SerializationRepository(string filePath)
+    {
+        _filePath = filePath;
+        EntitiesSubject = new BehaviorSubject<List<T>>(new List<T>());
+        AsObservable = EntitiesSubject.AsObservable();
+    }
+    
     private protected BehaviorSubject<List<T>> EntitiesSubject { get; }
+    protected IObservable<List<T>> AsObservable { get; }
     
     public abstract bool CompareEntities(T obj1, T obj2);
     
@@ -29,23 +41,31 @@ public abstract class SerializationRepository<T>
         _stream.Flush();
         JsonSerializer.SerializeAsync(_stream, obj, _options);
         _stream.Close();
-        //EntitiesSubject.OnNext(obj);
+        EntitiesSubject.OnNext(obj);
     }
 
     protected List<T> Deserialize()
     {
-        _stream = GetStream();
-        var list = JsonSerializer.Deserialize<List<T>>(_stream, _options);
-        _stream.Close();
-        
-        return list;
+        List<T>? deserialized = null;
+        try
+        {
+            _stream = GetStream();
+            deserialized = JsonSerializer.Deserialize<List<T>>(_stream, _options);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e);
+        }
+        finally
+        {
+            _stream?.Close();
+            deserialized ??= new List<T>();
+        }
+
+        return deserialized;
     }
 
-    protected SerializationRepository(string filePath)
-    {
-        _filePath = filePath;
-    }
-
+   
     protected void Append(T obj)
     {
         var list = Deserialize();

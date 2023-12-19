@@ -1,4 +1,5 @@
-﻿using WMS.domain.entity;
+﻿using System.Collections.Generic;
+using WMS.domain.entity;
 
 namespace WMS.data.repository;
 
@@ -22,6 +23,10 @@ public class ProductRepository : SerializationRepository<Product>
     }
     public ProductRepository(string filePath) : base(filePath)
     {
+    }
+    public List<Product> GetAll()
+    {
+        return Deserialize();
     }
 
     public override bool CompareEntities(Product obj1, Product obj2)

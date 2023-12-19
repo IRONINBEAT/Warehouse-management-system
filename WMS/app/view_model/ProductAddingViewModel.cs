@@ -28,19 +28,24 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
     public ProductAddingViewModel()
     {
-        Type.Add(ProductType.BUILDING_MATERIALS);
-        Type.Add(ProductType.TOOLS);
-        Type.Add(ProductType.ELECTRONICS);
+        for (int i = 0; i < 11; i++)
+        {
+            Type.Add((ProductType)i);
+        }
         
         ProductUseCase _productUseCase = new ProductUseCase(
-            new ProductRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Products.json"));
+            new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
 
-        
+        AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
+            new AuthorizedUserRepository(
+                @"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\AuthorizedUser.json"));
 
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
-            Product product = new Product("21541235661", 0, Manufacturer, Name, Quantity, 
-                Description, Width, Height, Length, Type[SelectedIndex], Weight);
+            
+            
+            Product product = new Product("21541235661", _productUseCase.GenerateId(), Manufacturer, Name, Quantity, 
+                Description, Width, Height, Length, Type[SelectedIndex], Weight, _authorizationUseCase.GetUser());
             
             if (_productUseCase.Add(product) != ProductAddingErrors.SUCCEED)
                 return Router.Navigate.Execute(new ProductAddingViewModel());

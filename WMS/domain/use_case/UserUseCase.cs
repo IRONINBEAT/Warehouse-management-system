@@ -18,7 +18,7 @@ public class UserUseCase : IUser
 
     public void Register(User user)
     {
-        //сделать проверку на id
+        //сделать проверку на id, что такого id не задано у какого-то другого пользователя
         if (!string.IsNullOrEmpty(user.Login) && !string.IsNullOrEmpty(user.Password))
             _userRepository.Add(user);
     }
@@ -28,9 +28,7 @@ public class UserUseCase : IUser
         List <User> users = _userRepository.Download();
 
         foreach (var user in users)
-        {
             if (user.Login == login && user.Password == password) return true;
-        }
         
         return false;
     }

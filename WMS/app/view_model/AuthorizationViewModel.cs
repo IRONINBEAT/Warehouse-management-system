@@ -38,7 +38,7 @@ public class AuthorizationViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
             AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
                 new AuthorizedUserRepository(
-                    "C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\AuthorizedUser.json"));
+                    @"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\AuthorizedUser.json"));
 
             if (IsAuthorized = _userUseCase.Authorize(Login, Password))
             {

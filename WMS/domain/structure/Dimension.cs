@@ -1,4 +1,6 @@
-﻿namespace WMS.domain.structure;
+﻿using NuGet.Common;
+
+namespace WMS.domain.structure;
 
 public struct Dimension
 {
@@ -11,4 +13,11 @@ public struct Dimension
     public double Width { get; set; }
     public double Height{ get; set; }
     public double Length{ get; set; }
+
+
+
+    public string ToString
+    {
+        get { return $"({Width}x{Height}x{Length}) м\u00b3"; }
+    }
 }

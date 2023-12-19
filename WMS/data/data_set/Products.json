@@ -1,25 +1,95 @@
 [
   {
     "Code": "21541235661",
-    "Quantity": 4,
-    "Description": "qwqqwqw",
+    "Quantity": 40,
+    "Description": "sdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfasdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfsdfaa",
     "Dimensions": {
-      "Width": 1,
-      "Height": 2,
-      "Length": 3
+      "Width": 21,
+      "Height": 1,
+      "Length": 30,
+      "ToString": "(21x1x30) м\u00B3"
     },
-    "Id": 0,
-    "IntegratingPerson": null,
+    "Id": 2037,
+    "IntegratingPerson": {
+      "ID": 0,
+      "Login": "test",
+      "Name": "Илья",
+      "Password": "t",
+      "Patronymic": "Петрович",
+      "SurName": "Воронин",
+      "Role": 1
+    },
     "Manufacturer": {
       "Address": {},
-      "CompanyName": "yyuiyu",
+      "CompanyName": "aasasassdasd",
       "Email": null,
       "Id": 0,
       "PhoneNumber": null
     },
-    "Name": "asaasasas",
+    "Name": "sdfsdf",
     "Type": 4,
-    "QrCode": null,
     "NetWeight": 5
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 32,
+    "Description": "asdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasdasd",
+    "Dimensions": {
+      "Width": 123,
+      "Height": 123,
+      "Length": 123,
+      "ToString": "(123x123x123) м\u00B3"
+    },
+    "Id": 9585,
+    "IntegratingPerson": {
+      "ID": 0,
+      "Login": "test",
+      "Name": "Илья",
+      "Password": "t",
+      "Patronymic": "Петрович",
+      "SurName": "Воронин",
+      "Role": 1
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "asdassdada",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "asdsdafsdfasd",
+    "Type": 4,
+    "NetWeight": 3
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 13,
+    "Description": "dfgfdghgf",
+    "Dimensions": {
+      "Width": 12,
+      "Height": 1,
+      "Length": 1,
+      "ToString": "(12x1x1) м\u00B3"
+    },
+    "Id": 8886,
+    "IntegratingPerson": {
+      "ID": 0,
+      "Login": "test",
+      "Name": "Илья",
+      "Password": "t",
+      "Patronymic": "Петрович",
+      "SurName": "Воронин",
+      "Role": 1
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "jhghjgh",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "sasdasd",
+    "Type": 4,
+    "NetWeight": 3
   }
 ]

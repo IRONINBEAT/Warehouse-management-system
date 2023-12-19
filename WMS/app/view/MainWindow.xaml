@@ -40,7 +40,16 @@
                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10">
                     <TextBlock Text="Список товаров" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
                 </Border>
-                <ListView x:Name="listOfProducts" Margin="0 20 0 0" Height="460"/>
+                <ListView SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding  AllProducts}" x:Name="listOfProducts" Margin="0 20 0 0" Height="460">
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Width="Auto" Header="ID" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Width="Auto" Header="Название" DisplayMemberBinding="{Binding Name}"/>
+                            <GridViewColumn Width="Auto" Header="Тип товара" DisplayMemberBinding="{Binding Type}"/>
+                            <GridViewColumn Width="Auto" Header="Количество" DisplayMemberBinding="{Binding Quantity}"/>
+                        </GridView>
+                    </ListView.View>
+                </ListView>
             </StackPanel>
         </Border>
         <Border  Width="550" MaxHeight="500" Margin="50" Background="#DCDCDC" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="30" CornerRadius="20">
@@ -50,10 +59,10 @@
             <Grid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
                    <TextBlock Text="ID:" FontSize="20"></TextBlock>
-                   <TextBlock Text="321" FontSize="20" Margin="5 0 0 0"></TextBlock>
+                   <TextBlock  Text="{Binding SelectedProduct.Id}" FontSize="20" Margin="5 0 0 0"></TextBlock>
                </StackPanel>
                 <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock Text="Ножницы" FontWeight="Black" FontSize="20"></TextBlock> 
+                    <TextBlock Text="{Binding SelectedProduct.Name}" FontWeight="Black" FontSize="20"></TextBlock> 
                 </StackPanel> 
             </Grid>
         </Border>
@@ -64,7 +73,7 @@
             <Grid>
                 <StackPanel Orientation="Horizontal">
                     <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Статус товара:" TextAlignment="Left"></TextBlock>
-                    <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="В отгрузке" TextAlignment="Left"></TextBlock>
+                    <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="Сделать" TextAlignment="Left"></TextBlock>
                 </StackPanel>
                 
                 <StackPanel>
@@ -73,7 +82,7 @@
                 </StackPanel>
                 <StackPanel>
                     <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock Margin="120 0 0 0" FontSize="20" Foreground="Azure" Text="Инструмент" TextAlignment="Left"></TextBlock>
+                    <TextBlock Margin="120 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Type}" TextAlignment="Left"></TextBlock>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
@@ -83,7 +92,7 @@
                 <StackPanel>
                     <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
                     <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock Margin="170 0 0 0" FontSize="20" Foreground="Azure" Text="ErichCrauze " TextAlignment="Left"></TextBlock>
+                    <TextBlock Margin="170 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Manufacturer.CompanyName}" TextAlignment="Left"></TextBlock>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock FontSize="20"></TextBlock> 
@@ -95,7 +104,7 @@
                     <TextBlock FontSize="20"></TextBlock> 
                     <TextBlock FontSize="20"></TextBlock>
                     <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock Margin="105 0 0 0" FontSize="20" Foreground="Azure" Text="(0.1x0.2x0.05) м³" TextAlignment="Left"></TextBlock>
+                    <TextBlock Margin="105 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Dimensions.ToString }" TextAlignment="Left"></TextBlock>
                 </StackPanel>
                 <StackPanel>
                     <TextBlock FontSize="20"></TextBlock>
@@ -115,8 +124,8 @@
                             <DropShadowEffect BlurRadius="25" Color="MidnightBlue" ShadowDepth="10"/>
                         </Border.Effect> 
                         <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="90">
-                            <TextBlock  TextWrapping="Wrap"  FontSize="15" Foreground="Azure" TextAlignment="Center">
-                                Ручные режущие инструменты. Ножницы состоят из пары металлических лезвий, повернутых так, что заостренные края скользят друг по другу, когда ручки (смычки), противоположные шарниру, закрыты.
+                            <TextBlock Text="{Binding SelectedProduct.Description}"  TextWrapping="Wrap"  FontSize="15" Foreground="Azure" TextAlignment="Center">
+                                
                             </TextBlock>
                         </ScrollViewer>
                     </Border>

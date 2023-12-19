@@ -2,10 +2,10 @@
   {
     "ID": 0,
     "Login": "test",
-    "Name": "Inan",
+    "Name": "Илья",
     "Password": "t",
-    "Patronymic": "Ivanovich",
-    "SurName": "Ivanov",
+    "Patronymic": "Петрович",
+    "SurName": "Воронин",
     "Role": 1
   }
 ]

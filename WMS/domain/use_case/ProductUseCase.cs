@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Linq;
+using System.Text;
 using Microsoft.VisualBasic.CompilerServices;
 using WMS.data.repository;
 using WMS.domain.entity;
@@ -20,18 +25,32 @@ public class ProductUseCase : IProduct
         if (string.IsNullOrEmpty(product.Name)) return ProductAddingErrors.NO_NAME;
         if (string.IsNullOrEmpty(product.Description)) return ProductAddingErrors.NO_DESCRIPTION;
         if (string.IsNullOrEmpty(product.Manufacturer.CompanyName)) return ProductAddingErrors.NO_MANUFACTURER;
-        if (product.Dimensions.Width == null || double.IsNegative(product.Dimensions.Width) || double.IsNaN(
+        if (double.IsNegative(product.Dimensions.Width) || double.IsNaN(
                 product.Dimensions.Width)) return ProductAddingErrors.NO_WIDTH;
-        if (product.Dimensions.Height == null || double.IsNegative(product.Dimensions.Height) || double.IsNaN(
+        if (double.IsNegative(product.Dimensions.Height) || double.IsNaN(
                 product.Dimensions.Height)) return ProductAddingErrors.NO_HEIGHT;
-        if (product.Dimensions.Length == null || double.IsNegative(product.Dimensions.Length) || double.IsNaN(
+        if (double.IsNegative(product.Dimensions.Length) || double.IsNaN(
                 product.Dimensions.Length)) return ProductAddingErrors.NO_LENGTH;
-        if (int.IsNegative(product.Quantity) || product.Quantity == null) return ProductAddingErrors.NO_QUANTITY;
-        if (product.NetWeight == null || double.IsNegative(product.NetWeight) || double.IsNaN(
+        if (int.IsNegative(product.Quantity)) return ProductAddingErrors.NO_QUANTITY;
+        if (double.IsNegative(product.NetWeight) || double.IsNaN(
                 product.NetWeight)) return ProductAddingErrors.NO_WEUGHT;
         
         _productRepository.Add(product);
         return ProductAddingErrors.SUCCEED;
+    }
+
+    public Product Get(int id)
+    {
+            var productList = _productRepository.GetAll();
+
+            foreach (var product in productList)
+                    if (product.Id == id) return product;
+            return productList[0];
+    }
+
+    public List<Product> GetAllProducts()
+    {
+            return _productRepository.GetAll();
     }
 
     public void WriteOff(int id)
@@ -42,5 +61,21 @@ public class ProductUseCase : IProduct
     public void SendToClient(int id)
     {
         
+    }
+
+    public int GenerateId()
+    {
+            DateTime centuryBegin = new DateTime(2021, 4, 29); //событие от которого рассчитывается количество тактов
+            DateTime currentDate = DateTime.Now;
+            string str = (currentDate.Ticks - centuryBegin.Ticks).ToString().Substring(7, 4);
+            return Convert.ToInt32(str);
+
+    }
+    
+    static string GetEnumDescription(Enum value)
+    {
+            var fieldInfo = value.GetType().GetField(value.ToString());
+            var attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
+            return attributes.Length > 0 ? attributes[0].Description : value.ToString();
     }
 }

@@ -7,9 +7,12 @@ namespace WMS.domain.entity;
 
 public class Product
 {
-    [JsonConstructor]
+    public Product()
+    {
+        
+    }
     public Product(string code, int id, string nameOfTheCompany, string name, int quantity, string description, double width, double height,
-        double length, ProductType type, double netWeight)
+        double length, ProductType type, double netWeight, User user)
     {
         Dimensions = new Dimension(width, height, length);
         Manufacturer = new Manufacturer(nameOfTheCompany);
@@ -21,6 +24,7 @@ public class Product
         Description = description;
         Type = type;
         NetWeight = netWeight;
+        IntegratingPerson = user;
     }
     
     public string Code { get; set; }
@@ -32,6 +36,6 @@ public class Product
     public Manufacturer Manufacturer { get; set; }
     public string Name { get; set; }
     public ProductType Type { get; set; }
-    public QRCode QrCode { get; set; }
+    //public QRCode QrCode { get; set; }
     public double NetWeight { get; set; }
 }
