@@ -53,9 +53,9 @@ public class ProductUseCase : IProduct
             return _productRepository.GetAll();
     }
 
-    public void WriteOff(int id)
+    public void WriteOff(Product product)
     {
-        
+            _productRepository.Remove(product);
     }
 
     public void SendToClient(int id)
@@ -72,7 +72,7 @@ public class ProductUseCase : IProduct
 
     }
     
-    static string GetEnumDescription(Enum value)
+    public string GetEnumDescription(Enum value)
     {
             var fieldInfo = value.GetType().GetField(value.ToString());
             var attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);

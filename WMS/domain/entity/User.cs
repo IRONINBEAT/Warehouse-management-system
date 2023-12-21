@@ -25,6 +25,8 @@ public class User
     
     public Role Role { get;  set; }
 
+    public string GetFIO => $"{SurName} {Name} {Patronymic}";
+
     public void ChangeRole(Role newRole)
     {
         Role = newRole;

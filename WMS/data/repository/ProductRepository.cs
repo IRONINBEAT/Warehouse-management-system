@@ -19,7 +19,7 @@ public class ProductRepository : SerializationRepository<Product>
     
     public void Remove(Product product)
     {
-        Remove(product);
+        RemoveItem(product);
     }
     public ProductRepository(string filePath) : base(filePath)
     {
@@ -31,6 +31,6 @@ public class ProductRepository : SerializationRepository<Product>
 
     public override bool CompareEntities(Product obj1, Product obj2)
     {
-        throw new System.NotImplementedException();
+        return obj1.Id == obj2.Id;
     }
 }

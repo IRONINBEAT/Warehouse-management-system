@@ -25,6 +25,7 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
     [Reactive] public int SelectedIndex { get; set; }
     
     public ReactiveCommand<Unit, IRoutableViewModel> Done { get; }
+    public ReactiveCommand<Unit, IRoutableViewModel> Back { get; }
 
     public ProductAddingViewModel()
     {
@@ -52,6 +53,7 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
             return Router.Navigate.Execute(new MainWindowViewModel());
         });
 
+        Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new MainWindowViewModel()));
     }
     
     public event PropertyChangingEventHandler? PropertyChanging;

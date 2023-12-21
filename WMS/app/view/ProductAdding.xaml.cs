@@ -4,7 +4,7 @@ using WMS.app.view_model;
 
 namespace WMS.app.view;
 
-public partial class ProductAdding : ReactiveUserControl<ProductAddingViewModel>
+public partial class ProductAdding
 {
     public ProductAdding()
     {

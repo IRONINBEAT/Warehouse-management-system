@@ -1,4 +1,7 @@
-﻿using System.Text.Json.Serialization;
+﻿using System;
+using System.ComponentModel;
+using System.Text.Json.Serialization;
+using ReactiveUI.Fody.Helpers;
 using WMS.domain.enumerate;
 using WMS.domain.structure;
 using ZXing.QrCode.Internal;
@@ -29,13 +32,15 @@ public class Product
     
     public string Code { get; set; }
     public int Quantity { get; set; }
-    public string Description { get; set; }
-    public Dimension Dimensions { get; set; }
-    public int Id { get; set; }
+    [Reactive] public string Description { get; set; }
+    [Reactive] public Dimension Dimensions { get; set; }
+    [Reactive] public int Id { get; set; }
     public User IntegratingPerson { get; set; }
-    public Manufacturer Manufacturer { get; set; }
-    public string Name { get; set; }
-    public ProductType Type { get; set; }
+    [Reactive] public Manufacturer Manufacturer { get; set; }
+    [Reactive] public string Name { get; set; }
+    [Reactive] public ProductType Type { get; set; }
     //public QRCode QrCode { get; set; }
     public double NetWeight { get; set; }
+
+    
 }

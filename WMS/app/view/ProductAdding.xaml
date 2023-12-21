@@ -79,8 +79,8 @@
                                 <TextBlock Text="кг" Margin="0,5,5,0" />
                             </StackPanel>
                         </StackPanel>
-                        <Button Command="{Binding Done}" Content="Готово" Margin="0 20">
-                        </Button>
+                        <Button Command="{Binding Done}" Content="Готово" Margin="0 20"/>
+                        <Button HorizontalAlignment="Center" Style="{StaticResource MaterialDesignOutlinedButton}" Command="{Binding Back}" Content="Вернуться"/>
                     </StackPanel>
                 </Border>
             </reactiveUi:RoutedViewHost.DefaultContent>

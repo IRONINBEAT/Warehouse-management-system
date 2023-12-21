@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Reactive.Linq;
 using System.Reactive.Subjects;
 using System.Text.Encodings.Web;
 using System.Text.Json;
 using System.Text.Unicode;
+using DynamicData;
 using WMS.domain.entity;
 
 namespace WMS.data.repository;
@@ -22,7 +24,7 @@ public abstract class SerializationRepository<T>
         AsObservable = EntitiesSubject.AsObservable();
     }
     
-    private protected BehaviorSubject<List<T>> EntitiesSubject { get; }
+    private BehaviorSubject<List<T>> EntitiesSubject { get; }
     protected IObservable<List<T>> AsObservable { get; }
     
     public abstract bool CompareEntities(T obj1, T obj2);
@@ -73,11 +75,24 @@ public abstract class SerializationRepository<T>
         Serialize(list);
     }
 
-    protected void Remove(T obj)
+    protected void RemoveItem(T obj)
     {
-        var list = Deserialize();
-        list.Remove(obj);
-        Serialize(list);
+        var newEntities = Deserialize();
+        var oldEntities = Deserialize();
+        foreach (var entity in oldEntities)
+        {
+            if (!CompareEntities(obj, entity)) continue;
+            for (var i = 0; i < oldEntities.Count; i++)
+                if (CompareEntities(oldEntities[i], obj))
+                {
+                    newEntities.RemoveAt(i);
+                    break;
+                }
+
+            EntitiesSubject.OnNext(newEntities);
+            Serialize(newEntities);
+            break;
+        }
     }
 
     protected void Change(T obj)

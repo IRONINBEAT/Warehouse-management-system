@@ -23,7 +23,7 @@
             <rxui:RoutedViewHost.DefaultContent>
                 <Grid>
                     <StackPanel Margin="20">
-            <TextBlock Text="Воронин Илья Петрович" Foreground="Azure"/>
+            <TextBlock Text="{Binding AuthorizedUser.GetFIO}" Foreground="Azure"/>
             <Button VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 12 0 0" Content="Личный кабинет">
             </Button>
         </StackPanel>
@@ -40,7 +40,7 @@
                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10">
                     <TextBlock Text="Список товаров" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
                 </Border>
-                <ListView SelectedIndex="{Binding SelectedIndex}" ItemsSource="{Binding  AllProducts}" x:Name="listOfProducts" Margin="0 20 0 0" Height="460">
+                <ListView SelectedItem="{Binding SelectedProduct}" ItemsSource="{Binding  AllProducts}" Margin="0 20 0 0" Height="460">
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="Auto" Header="ID" DisplayMemberBinding="{Binding Id}"/>
@@ -57,13 +57,12 @@
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
             <Grid>
-                <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <StackPanel Orientation="Horizontal">
                    <TextBlock Text="ID:" FontSize="20"></TextBlock>
-                   <TextBlock  Text="{Binding SelectedProduct.Id}" FontSize="20" Margin="5 0 0 0"></TextBlock>
-               </StackPanel>
-                <StackPanel HorizontalAlignment="Center" VerticalAlignment="Top">
-                    <TextBlock Text="{Binding SelectedProduct.Name}" FontWeight="Black" FontSize="20"></TextBlock> 
-                </StackPanel> 
+                   <TextBlock Text="{Binding SelectedProduct.Id}" FontSize="20" Margin="5 0 0 0"/>
+                    <TextBlock Margin="120 0 0 0" Text="{Binding SelectedProduct.Name, Mode=TwoWay}" FontWeight="Black" FontSize="20"/> 
+                </StackPanel>
+
             </Grid>
         </Border>
         <Border  Width="550" Height="280" Margin="0 145 50 0" Background="#6c5fe3" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="20" CornerRadius="20">
@@ -71,65 +70,38 @@
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
             <Grid>
-                <StackPanel Orientation="Horizontal">
-                    <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Статус товара:" TextAlignment="Left"></TextBlock>
-                    <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="Сделать" TextAlignment="Left"></TextBlock>
-                </StackPanel>
-                
                 <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock Margin="0 0 0 0" FontWeight="Bold" FontSize="20" Foreground="Azure" Text="Тип товара:" TextAlignment="Left"></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock Margin="120 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Type}" TextAlignment="Left"></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock Margin="0 0 0 0" FontWeight="Bold" FontSize="20" Foreground="Azure" Text="Производитель: " TextAlignment="Left"></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock FontSize="20"></TextBlock> <!-- Заглушка -->
-                    <TextBlock Margin="170 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Manufacturer.CompanyName}" TextAlignment="Left"></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock> 
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock Margin="0 0 0 0" FontWeight="Bold" FontSize="20" Foreground="Azure" Text="Габариты:" TextAlignment="Left"></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock> 
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock Margin="105 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Dimensions.ToString }" TextAlignment="Left"></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock Margin="0 10 0 0" FontWeight="Bold" FontSize="20" Foreground="Azure" Text="Краткое описание товара" TextAlignment="Center"></TextBlock>
-                </StackPanel>
-                <StackPanel>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <TextBlock FontSize="20"></TextBlock>
-                    <Border Margin="0 15 0 0 " Height="90" BorderBrush="Azure" BorderThickness="1">
-                        <Border.Effect>
-                            <DropShadowEffect BlurRadius="25" Color="MidnightBlue" ShadowDepth="10"/>
-                        </Border.Effect> 
-                        <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="90">
-                            <TextBlock Text="{Binding SelectedProduct.Description}"  TextWrapping="Wrap"  FontSize="15" Foreground="Azure" TextAlignment="Center">
-                                
-                            </TextBlock>
-                        </ScrollViewer>
-                    </Border>
-                    
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Статус товара:" TextAlignment="Left"></TextBlock>
+                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="Сделать" TextAlignment="Left"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Тип товара:" TextAlignment="Left"></TextBlock>
+                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding ProductType}" TextAlignment="Left"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Производитель:" TextAlignment="Left"></TextBlock>
+                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Manufacturer.CompanyName}" TextAlignment="Left"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Габариты:" TextAlignment="Left"></TextBlock>
+                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Dimensions.ToString}" TextAlignment="Left"></TextBlock>
+                    </StackPanel>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Краткое описание товара" TextAlignment="Left"></TextBlock>
+                    </StackPanel>
+                    <StackPanel>
+                        <Border Margin="0 15 0 0 " Height="90" BorderBrush="Azure" BorderThickness="1">
+                            <Border.Effect>
+                                <DropShadowEffect BlurRadius="25" Color="MidnightBlue" ShadowDepth="10"/>
+                            </Border.Effect>
+                            <ScrollViewer  VerticalScrollBarVisibility="Auto" Height="90">
+                                <TextBlock Text="{Binding SelectedProduct.Description}"  TextWrapping="Wrap"  FontSize="15" Foreground="Azure" TextAlignment="Center">
+                                </TextBlock>
+                            </ScrollViewer>
+                        </Border>
+
+                    </StackPanel>
                     
                 </StackPanel>
             </Grid>
@@ -150,9 +122,9 @@
                         <SolidColorBrush Color="#6c5fe3" />
                     </Button.Background>
                 </Button>
-                <Button Margin="0 0 0 50"  Content="Отгрузить товар клиенту" Style="{StaticResource MaterialDesignOutlinedButton}">
+                <Button Command="{Binding SendToClient}" Margin="0 0 0 50"  Content="Отгрузить товар клиенту" Style="{StaticResource MaterialDesignOutlinedButton}">
                 </Button>
-                <Button Content="Списать товар" Style="{StaticResource MaterialDesignRaisedButton}">
+                <Button Command="{Binding WriteOff}" Content="Списать товар" Style="{StaticResource MaterialDesignRaisedButton}">
                     <Button.Background>
                         <SolidColorBrush Color="DarkRed" />
                     </Button.Background>
