@@ -34,10 +34,10 @@
                         <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0" />
                     </Border.Effect>
                     <Grid>
-                        <TextBlock Text="Воронин Илья Петрович" FontSize="25" TextAlignment="Center" />
+                        <TextBlock Text="{Binding AuthorizedUserFullName}" FontSize="25" TextAlignment="Center" />
                         <StackPanel Orientation="Horizontal" VerticalAlignment="Bottom" Margin="0 40 0 0">
                             <TextBlock Text="Должность: " FontSize="15" />
-                            <TextBlock Text="Старший кладовщик" FontSize="15" Margin="5 0 0 0" />
+                            <TextBlock Text="{Binding AuthorizedUserRole}" FontSize="15" Margin="5 0 0 0" />
                         </StackPanel>
                     </Grid>
                 </Border>

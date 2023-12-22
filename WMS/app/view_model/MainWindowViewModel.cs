@@ -19,6 +19,7 @@ namespace WMS.app.view_model;
 
 public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
 {
+    private QRCodeUseCase _qrCodeUseCase;
     private ProductUseCase _productUseCase;
     public ReactiveCommand<Unit, IRoutableViewModel> AddProduct { get; }
     
@@ -29,7 +30,7 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
     
     [Reactive] public User AuthorizedUser { get; set; }
 
-    [Reactive] public WriteableBitmap QrCode { get; set; }
+    [Reactive] public BitmapImage QrCode { get; set; }
 
     [Reactive] public ObservableCollection<Product> AllProducts { get; set; }
     
@@ -43,6 +44,8 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
         {
             _selectedProduct = value;
             ProductType = _productUseCase.GetEnumDescription(_selectedProduct.Type);
+            QrCode = _qrCodeUseCase.Load(_selectedProduct);
+            OnPropertyChanged(nameof(QrCode));
             OnPropertyChanged(nameof(SelectedProduct));
             OnPropertyChanged(nameof(ProductType));
         }
@@ -68,11 +71,12 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
         _productUseCase = new ProductUseCase(
             new ProductRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Products.json"));
         
+        _qrCodeUseCase = new QRCodeUseCase();
         
-        List<Product> bufferAllProducts = _productUseCase.GetAllProducts();
+        var bufferAllProducts = _productUseCase.GetAllProducts();
 
         
-
+        
         AllProducts = new ObservableCollection<Product>();
 
         foreach (var product in bufferAllProducts)
@@ -87,7 +91,7 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
             return Router.Navigate.Execute(new MainWindowViewModel());
         });
 
-        PersonalAccount = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new UserPageViewModel()));
+        PersonalAccount = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new UserPageViewModel(AuthorizedUser.GetFIO, AuthorizedUser.Role)));
         
         SendToClient = ReactiveCommand.CreateFromObservable(() =>
         {
@@ -127,6 +131,6 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
     public IScreen HostScreen { get; }
 
     public RoutingState Router { get; } = new();
-    
-    
+
+
 }

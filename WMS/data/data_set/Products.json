@@ -1,15 +1,15 @@
 [
   {
     "Code": "21541235661",
-    "Quantity": 40,
-    "Description": "sfgfddhg",
+    "Quantity": 30,
+    "Description": "Синие",
     "Dimensions": {
-      "Width": 1,
-      "Height": 2,
-      "Length": 3,
-      "ToString": "(1x2x3) м\u00B3"
+      "Width": 2,
+      "Height": 5,
+      "Length": 0.5,
+      "ToString": "(2x5x0,5) м\u00B3"
     },
-    "Id": 7585,
+    "Id": 3415,
     "IntegratingPerson": {
       "ID": 0,
       "Login": "test",
@@ -22,13 +22,45 @@
     },
     "Manufacturer": {
       "Address": {},
-      "CompanyName": "fghfghfgh",
+      "CompanyName": "Levis",
       "Email": null,
       "Id": 0,
       "PhoneNumber": null
     },
-    "Name": "ffefefefef",
-    "Type": 4,
-    "NetWeight": 5
+    "Name": "Джинсы",
+    "Type": 1,
+    "NetWeight": 0.8
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 90,
+    "Description": "Режут",
+    "Dimensions": {
+      "Width": 6,
+      "Height": 5,
+      "Length": 8,
+      "ToString": "(6x5x8) м\u00B3"
+    },
+    "Id": 2974,
+    "IntegratingPerson": {
+      "ID": 0,
+      "Login": "test",
+      "Name": "Илья",
+      "Password": "t",
+      "Patronymic": "Петрович",
+      "SurName": "Воронин",
+      "Role": 1,
+      "GetFIO": "Воронин Илья Петрович"
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "Эрих Крааааузе",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "Ножницы",
+    "Type": 7,
+    "NetWeight": 0.6
   }
 ]

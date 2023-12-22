@@ -6,6 +6,7 @@
     "Password": "t",
     "Patronymic": "Петрович",
     "SurName": "Воронин",
-    "Role": 1
+    "Role": 1,
+    "GetFIO": "Воронин Илья Петрович"
   }
 ]

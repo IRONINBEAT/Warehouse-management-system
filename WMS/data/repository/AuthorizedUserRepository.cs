@@ -24,7 +24,8 @@ public class AuthorizedUserRepository: SerializationRepository<User>
     
     public User Download()
     {
-        return Deserialize()[0];
+        var deserialized = Deserialize();
+        return deserialized[^1];
     }
     
     public AuthorizedUserRepository(string filePath) : base(filePath)

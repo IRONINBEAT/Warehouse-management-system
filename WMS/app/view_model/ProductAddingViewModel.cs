@@ -42,6 +42,8 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
             new AuthorizedUserRepository(
                 @"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\AuthorizedUser.json"));
 
+        QRCodeUseCase _qrCodeUseCase = new QRCodeUseCase();
+
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
             
@@ -51,7 +53,7 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
             
             if (_productUseCase.Add(product) != ProductAddingErrors.SUCCEED)
                 return Router.Navigate.Execute(new ProductAddingViewModel());
-            _productUseCase.GenerateQrCode($"Товар на полке: {char.ToUpper(product.Name[0])}-{product.Id}");
+            _qrCodeUseCase.Generate(product);
             return Router.Navigate.Execute(new MainWindowViewModel());
         });
 

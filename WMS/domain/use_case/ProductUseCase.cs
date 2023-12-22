@@ -62,30 +62,9 @@ public class ProductUseCase : IProduct
             _productRepository.Remove(product);
     }
 
-    public void GenerateQrCode(string codingInfo)
-    {
-            BarcodeWriter barcodeWriter = new BarcodeWriter();
-            
-            barcodeWriter.Format = BarcodeFormat.QR_CODE;
-            
-
-
-            barcodeWriter.Options = new ZXing.Common.EncodingOptions
-            {
-                    Width = 300,
-                    Height = 300
-            };
-
-            barcodeWriter.Options.Hints.Add(EncodeHintType.CHARACTER_SET, "UTF-8");
-            
-            BitmapSource barcodeBitmap = barcodeWriter.Write(codingInfo);
-            
-            SaveAsPng(barcodeBitmap, $@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\qr_codes\{codingInfo[15..]}.png");
-    }
-
     public int GenerateId()
     {
-            DateTime centuryBegin = new DateTime(2021, 4, 29); //событие от которого рассчитывается количество тактов
+            DateTime centuryBegin = new DateTime(2021, 4, 29);
             DateTime currentDate = DateTime.Now;
             string str = (currentDate.Ticks - centuryBegin.Ticks).ToString().Substring(7, 4);
             return Convert.ToInt32(str);
@@ -99,16 +78,5 @@ public class ProductUseCase : IProduct
             return attributes.Length > 0 ? attributes[0].Description : value.ToString();
     }
     
-    static void SaveAsPng(BitmapSource bitmapSource, string filePath)
-    {
-            // Конвертация BitmapSource в Bitmap
-            var encoder = new PngBitmapEncoder();
-            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
 
-            // Сохранение в файл
-            using (var fileStream = new System.IO.FileStream(filePath, System.IO.FileMode.Create))
-            {
-                    encoder.Save(fileStream);
-            }
-    }
 }

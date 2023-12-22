@@ -10,5 +10,17 @@
     "PostalCode": "654458",
     "ResponsibilityType": 0,
     "ProductId": 6736
+  },
+  {
+    "Name": "Некрасов Василий Васильевич",
+    "PhoneNumber": "8-923-569-58-22",
+    "Email": "odufbdifof@gmail.com",
+    "Country": "Россия",
+    "City": "Ростов",
+    "Street": "Мира",
+    "HouseNumber": "39",
+    "PostalCode": "654487",
+    "ResponsibilityType": 0,
+    "ProductId": 3415
   }
 ]

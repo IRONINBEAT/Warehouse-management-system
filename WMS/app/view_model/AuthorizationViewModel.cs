@@ -21,7 +21,6 @@ public class AuthorizationViewModel : ViewModelBase, IRoutableViewModel, IScreen
     [Reactive] public string Password { private get; set; }
     
     public ReactiveCommand<Unit, IRoutableViewModel> ToNavigate { get; }
-    public ReactiveCommand <Unit, Unit> Enter { get; }
     public ReactiveCommand <Unit, Unit> ForgotPassword { get; }
     
     [Reactive] public bool IsForgot { get; set; }
@@ -52,6 +51,8 @@ public class AuthorizationViewModel : ViewModelBase, IRoutableViewModel, IScreen
                         break;
                     }
                 }
+                if (_authorizationUseCase.GetUser().Role == Role.ADMIN)
+                    return Router.Navigate.Execute(new AdminPageViewModel());
                 return Router.Navigate.Execute(new MainWindowViewModel());
             }
             return Router.Navigate.Execute(new AuthorizationViewModel());

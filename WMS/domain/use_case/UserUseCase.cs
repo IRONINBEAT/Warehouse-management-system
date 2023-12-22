@@ -1,4 +1,6 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
 using System.Windows.Documents;
 using WMS.data.repository;
 using WMS.domain.entity;
@@ -38,8 +40,19 @@ public class UserUseCase : IUser
 
     }
 
-    public void Dismiss(int id)
+    public void Dismiss(User user)
     {
+        _userRepository.Remove(user);
+    }
 
+    public List<User> GetAllUsers()
+    {
+        return _userRepository.Download();
+    }
+    public string GetEnumDescription(Enum value)
+    {
+        var fieldInfo = value.GetType().GetField(value.ToString());
+        var attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
+        return attributes.Length > 0 ? attributes[0].Description : value.ToString();
     }
 }

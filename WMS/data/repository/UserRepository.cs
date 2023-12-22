@@ -15,7 +15,7 @@ public class UserRepository : SerializationRepository<User>
 
     public override bool CompareEntities(User obj1, User obj2)
     {
-        throw new System.NotImplementedException();
+        return obj1.ID == obj2.ID;
     }
 
     public void Add(User user)
@@ -26,6 +26,11 @@ public class UserRepository : SerializationRepository<User>
     public List<User> Download()
     {
         return Deserialize();
+    }
+    
+    public void Remove(User user)
+    {
+        RemoveItem(user);
     }
     
     public static UserRepository GetInstance()
