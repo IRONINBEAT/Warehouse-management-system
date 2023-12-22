@@ -1,47 +1,15 @@
 [
   {
     "Code": "21541235661",
-    "Quantity": 5,
-    "Description": "sfgsfg",
-    "Dimensions": {
-      "Width": 2,
-      "Height": 3,
-      "Length": 4,
-      "ToString": "(2x3x4) м\u00B3"
-    },
-    "Id": 4464,
-    "IntegratingPerson": {
-      "ID": 0,
-      "Login": "test",
-      "Name": "Илья",
-      "Password": "t",
-      "Patronymic": "Петрович",
-      "SurName": "Воронин",
-      "Role": 1,
-      "GetFIO": "Воронин Илья Петрович"
-    },
-    "Manufacturer": {
-      "Address": {},
-      "CompanyName": "sfgsfsf",
-      "Email": null,
-      "Id": 0,
-      "PhoneNumber": null
-    },
-    "Name": "sfgsfg",
-    "Type": 0,
-    "NetWeight": 6
-  },
-  {
-    "Code": "21541235661",
-    "Quantity": 4,
-    "Description": "qwerqerw",
+    "Quantity": 40,
+    "Description": "sfgfddhg",
     "Dimensions": {
       "Width": 1,
       "Height": 2,
       "Length": 3,
       "ToString": "(1x2x3) м\u00B3"
     },
-    "Id": 6736,
+    "Id": 7585,
     "IntegratingPerson": {
       "ID": 0,
       "Login": "test",
@@ -54,13 +22,13 @@
     },
     "Manufacturer": {
       "Address": {},
-      "CompanyName": "sdfsdfsd",
+      "CompanyName": "fghfghfgh",
       "Email": null,
       "Id": 0,
       "PhoneNumber": null
     },
-    "Name": "qweqerqe",
-    "Type": 0,
-    "NetWeight": 50
+    "Name": "ffefefefef",
+    "Type": 4,
+    "NetWeight": 5
   }
 ]

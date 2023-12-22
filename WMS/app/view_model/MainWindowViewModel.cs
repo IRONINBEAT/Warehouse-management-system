@@ -4,7 +4,9 @@ using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Reactive;
+using System.Reflection;
 using System.Windows;
+using System.Windows.Media.Imaging;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using WMS.app.view;
@@ -23,21 +25,26 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
     public ReactiveCommand<Unit, IRoutableViewModel> SendToClient { get; }
     
     public ReactiveCommand<Unit, IRoutableViewModel> WriteOff { get; set; }
+    public ReactiveCommand<Unit, IRoutableViewModel> PersonalAccount { get; set; }
     
     [Reactive] public User AuthorizedUser { get; set; }
-    [Reactive] public string ProductType => _productUseCase.GetEnumDescription(SelectedProduct.Type);
-    
+
+    [Reactive] public WriteableBitmap QrCode { get; set; }
 
     [Reactive] public ObservableCollection<Product> AllProducts { get; set; }
+    
+    [Reactive] public string ProductType { get; set; }
 
     private Product _selectedProduct;
     public Product SelectedProduct
     {
-        get { return _selectedProduct; }
+        get => _selectedProduct;
         set
         {
             _selectedProduct = value;
+            ProductType = _productUseCase.GetEnumDescription(_selectedProduct.Type);
             OnPropertyChanged(nameof(SelectedProduct));
+            OnPropertyChanged(nameof(ProductType));
         }
     }
 
@@ -62,7 +69,7 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
             new ProductRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Products.json"));
         
         
-        var bufferAllProducts = _productUseCase.GetAllProducts();
+        List<Product> bufferAllProducts = _productUseCase.GetAllProducts();
 
         
 
@@ -70,9 +77,7 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
         foreach (var product in bufferAllProducts)
             AllProducts.Add(product);
-            
 
-        SelectedProduct = AllProducts[0];
         
         
         AddProduct = ReactiveCommand.CreateFromObservable(() =>
@@ -81,6 +86,8 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
                 return Router.Navigate.Execute(new ProductAddingViewModel());
             return Router.Navigate.Execute(new MainWindowViewModel());
         });
+
+        PersonalAccount = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new UserPageViewModel()));
         
         SendToClient = ReactiveCommand.CreateFromObservable(() =>
         {
@@ -120,4 +127,6 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
     public IScreen HostScreen { get; }
 
     public RoutingState Router { get; } = new();
+    
+    
 }

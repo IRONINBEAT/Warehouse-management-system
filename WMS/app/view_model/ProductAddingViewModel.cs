@@ -1,6 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
+using System.Windows.Media.Imaging;
 using DynamicData;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -44,12 +45,13 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
             
-            
             Product product = new Product("21541235661", _productUseCase.GenerateId(), Manufacturer, Name, Quantity, 
-                Description, Width, Height, Length, Type[SelectedIndex], Weight, _authorizationUseCase.GetUser());
+                Description, Width, Height, Length, Type[SelectedIndex],
+                Weight, _authorizationUseCase.GetUser());
             
             if (_productUseCase.Add(product) != ProductAddingErrors.SUCCEED)
                 return Router.Navigate.Execute(new ProductAddingViewModel());
+            _productUseCase.GenerateQrCode($"Товар на полке: {char.ToUpper(product.Name[0])}-{product.Id}");
             return Router.Navigate.Execute(new MainWindowViewModel());
         });
 

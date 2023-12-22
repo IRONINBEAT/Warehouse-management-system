@@ -16,8 +16,5 @@ public struct Dimension
 
 
 
-    public string ToString
-    {
-        get { return $"({Width}x{Height}x{Length}) м\u00b3"; }
-    }
+    public string ToString => $"({Width}x{Height}x{Length}) м\u00b3";
 }

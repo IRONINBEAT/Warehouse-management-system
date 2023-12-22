@@ -11,5 +11,4 @@ public interface IProduct
     Product Get(int id);
     List<Product> GetAllProducts();
     void WriteOff(Product product);
-    void SendToClient(int id);
 }

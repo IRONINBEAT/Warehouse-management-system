@@ -2,7 +2,7 @@
 
 namespace WMS.app.view;
 
-public partial class UserPage : Window
+public partial class UserPage
 {
     public UserPage()
     {

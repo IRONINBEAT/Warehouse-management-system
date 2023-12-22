@@ -2,13 +2,17 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data.Entity.ModelConfiguration.Conventions;
+using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Windows.Media.Imaging;
 using Microsoft.VisualBasic.CompilerServices;
 using WMS.data.repository;
 using WMS.domain.entity;
 using WMS.domain.enumerate;
 using WMS.domain.repository;
+using ZXing;
+using ZXing.Presentation;
 
 namespace WMS.domain.use_case;
 
@@ -58,9 +62,25 @@ public class ProductUseCase : IProduct
             _productRepository.Remove(product);
     }
 
-    public void SendToClient(int id)
+    public void GenerateQrCode(string codingInfo)
     {
-        
+            BarcodeWriter barcodeWriter = new BarcodeWriter();
+            
+            barcodeWriter.Format = BarcodeFormat.QR_CODE;
+            
+
+
+            barcodeWriter.Options = new ZXing.Common.EncodingOptions
+            {
+                    Width = 300,
+                    Height = 300
+            };
+
+            barcodeWriter.Options.Hints.Add(EncodeHintType.CHARACTER_SET, "UTF-8");
+            
+            BitmapSource barcodeBitmap = barcodeWriter.Write(codingInfo);
+            
+            SaveAsPng(barcodeBitmap, $@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\qr_codes\{codingInfo[15..]}.png");
     }
 
     public int GenerateId()
@@ -77,5 +97,18 @@ public class ProductUseCase : IProduct
             var fieldInfo = value.GetType().GetField(value.ToString());
             var attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
             return attributes.Length > 0 ? attributes[0].Description : value.ToString();
+    }
+    
+    static void SaveAsPng(BitmapSource bitmapSource, string filePath)
+    {
+            // Конвертация BitmapSource в Bitmap
+            var encoder = new PngBitmapEncoder();
+            encoder.Frames.Add(BitmapFrame.Create(bitmapSource));
+
+            // Сохранение в файл
+            using (var fileStream = new System.IO.FileStream(filePath, System.IO.FileMode.Create))
+            {
+                    encoder.Save(fileStream);
+            }
     }
 }

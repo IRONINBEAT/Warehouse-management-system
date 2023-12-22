@@ -24,10 +24,10 @@
                 <Grid>
                     <StackPanel Margin="20">
             <TextBlock Text="{Binding AuthorizedUser.GetFIO}" Foreground="Azure"/>
-            <Button VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0 12 0 0" Content="Личный кабинет">
+            <Button Command="{Binding PersonalAccount}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35 65 0 0 " Content="Личный кабинет">
             </Button>
         </StackPanel>
-        <Button Command="{Binding  AddProduct}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 100 320 0" Content="Добавить товар">
+        <Button Command="{Binding  AddProduct}" VerticalAlignment="Top" HorizontalAlignment="Center" Margin="0 100 330 0" Content="Добавить товар">
             <Button.Background>
                 <SolidColorBrush Color="#2a9d6f" />
             </Button.Background>
@@ -84,8 +84,10 @@
                         <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Manufacturer.CompanyName}" TextAlignment="Left"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
-                        <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Габариты:" TextAlignment="Left"></TextBlock>
-                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Dimensions.ToString}" TextAlignment="Left"></TextBlock>
+                        <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Габариты:" TextAlignment="Left"/>
+                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.Dimensions.ToString}" TextAlignment="Left"/>
+                        <TextBlock Margin="20 0 0 0" FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Масса(кг):" TextAlignment="Left"/>
+                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding SelectedProduct.NetWeight}" TextAlignment="Left"/>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                         <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Краткое описание товара" TextAlignment="Left"></TextBlock>
@@ -110,7 +112,7 @@
             <Border.Effect>
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
-            <Image Source="C:\Users\IRONIN\source\repos\WMS\WMS\Images\786d0374368f7510f99346d0ed7cc7cc.png"/>
+            <Image Source="{Binding QrCode}"/>
         </Border>
         <Border  Width="270" Height="260" MaxHeight="500" Margin="0 440 50 0" Background="White" VerticalAlignment="Top" HorizontalAlignment="Right" Padding="30" CornerRadius="20">
             <Border.Effect>
