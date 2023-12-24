@@ -20,14 +20,28 @@
             VerticalContentAlignment="Stretch">
             <reactiveUi:RoutedViewHost.DefaultContent>
                 <Grid>
-                    <Border Background="CornflowerBlue" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center"
-                        Padding="5" CornerRadius="30">
-                    <Border.Effect>
-                        <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0" />
-                    </Border.Effect>
-                    <TextBlock Text="Личный кабинет" Foreground="Azure" FontSize="30" FontWeight="Bold" Margin="20"
-                               TextAlignment="Center" />
-                </Border>
+                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                        <StackPanel VerticalAlignment="Top">
+                            <Border Background="CornflowerBlue" Margin="20" VerticalAlignment="Top" HorizontalAlignment="Center"
+                                    Padding="5" CornerRadius="30">
+                                <Border.Effect>
+                                    <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0" />
+                                </Border.Effect>
+                                <TextBlock Text="Личный кабинет" Foreground="Azure" FontSize="30" FontWeight="Bold" Margin="20"
+                                           TextAlignment="Center" />
+                            </Border>
+                        </StackPanel >
+                        <StackPanel Margin="0 50 0 0">
+                            <Button Command="{Binding Quit}" Content="Выйти из системы" Style="{StaticResource MaterialDesignRaisedButton}">
+                                <Button.Background>
+                                    <SolidColorBrush Color="DarkRed" />
+                                </Button.Background>
+                            </Button>
+                        </StackPanel>
+                        
+                    </StackPanel>
+                    
+                   
                 <Border Background="#DCDCDC" Width="700" Margin="0 120 0 0" VerticalAlignment="Top"
                         HorizontalAlignment="Center" Padding="20" CornerRadius="30">
                     <Border.Effect>

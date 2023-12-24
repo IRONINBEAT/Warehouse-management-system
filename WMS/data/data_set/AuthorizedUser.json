@@ -1,302 +1,132 @@
 [
   {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 1,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 1,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 1,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 1,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 1,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 1,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 1,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 65,
-    "Login": "you",
-    "Name": "Иван",
-    "Password": "to",
-    "Patronymic": "Петрович",
-    "SurName": "Гулькин",
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
     "Role": 2,
-    "GetFIO": "Гулькин Иван Петрович"
+    "GetFIO": "Гречухин Данил Витальевич"
   },
   {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 4,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "test",
-    "Name": "Илья",
-    "Password": "t",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
+    "ID": 9267,
+    "Login": "evgen",
+    "Name": "Евгения",
+    "Password": "$2a$11$W8sfIQpGhz07huz/f8ijmeW9BGAZIMjIwMkNwSzmAbC8GS8GsLOpa",
+    "Patronymic": "Николаевна",
+    "SurName": "Воронина",
     "Role": 1,
+    "GetFIO": "Воронина Евгения Николаевна"
+  },
+  {
+    "ID": 0,
+    "Login": "admin",
+    "Name": "Илья",
+    "Password": "$2a$11$X.Y4gkth0UmkApSJIJPvouPV2kZ8DHEjbkKEIUCe647zuVYhK3mDK",
+    "Patronymic": "Петрович",
+    "SurName": "Воронин",
+    "Role": 3,
     "GetFIO": "Воронин Илья Петрович"
+  },
+  {
+    "ID": 0,
+    "Login": "admin",
+    "Name": "Илья",
+    "Password": "$2a$11$X.Y4gkth0UmkApSJIJPvouPV2kZ8DHEjbkKEIUCe647zuVYhK3mDK",
+    "Patronymic": "Петрович",
+    "SurName": "Воронин",
+    "Role": 3,
+    "GetFIO": "Воронин Илья Петрович"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
   }
 ]

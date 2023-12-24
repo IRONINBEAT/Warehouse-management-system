@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
 using ReactiveUI;
@@ -38,7 +39,7 @@ public class FillingCustomerInfoViewModel : ViewModelBase, IRoutableViewModel, I
         CustomerUseCase _customerUseCase = new CustomerUseCase(
             new CustomerRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Customers.json"));
         
-        for (int i = 0; i < 2; i++)
+        for (int i = 0; i < Enum.GetNames(typeof(ResponsibilityType)).Length; i++)
         {
             Type.Add((ResponsibilityType)i);
         }

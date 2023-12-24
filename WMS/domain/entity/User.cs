@@ -4,7 +4,7 @@ namespace WMS.domain.entity;
 
 public class User
 {
-    public User(int id, string login, string name, string password, string patronymic, string surName )
+    public User(int id, string login, string name, string password, string patronymic, string surName, Role role )
     {
         ID = id;
         Login = login;
@@ -12,6 +12,7 @@ public class User
         Password = password;
         Patronymic = patronymic;
         SurName = surName;
+        Role = role;
     }
     
     public int ID { get; private set; }
@@ -19,11 +20,11 @@ public class User
 
 
     public string Name { get; private set; }
-    public string Password { get; private set; }
+    public string Password { get; set; }
     public string Patronymic { get; private set; }
     public string SurName { get; private set; }
     
-    public Role Role { get;  set; }
+    public Role Role { get;  private set; }
 
     public string GetFIO => $"{SurName} {Name} {Patronymic}";
 

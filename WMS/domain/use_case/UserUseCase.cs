@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using System.Windows.Documents;
 using WMS.data.repository;
 using WMS.domain.entity;
+using WMS.domain.enumerate;
 using WMS.domain.repository;
 
 namespace WMS.domain.use_case;
@@ -18,21 +20,26 @@ public class UserUseCase : IUser
     }
 
 
-    public void Register(User user)
+    public bool Register(User user)
     {
-        //сделать проверку на id, что такого id не задано у какого-то другого пользователя
         if (!string.IsNullOrEmpty(user.Login) && !string.IsNullOrEmpty(user.Password))
+        {
+            user.Password = HashPassword(user.Password);
             _userRepository.Add(user);
+            return true;
+        }
+
+        return false;
     }
 
-    public bool Authorize(string login, string password)
+    public User Authorize(string login, string password)
     {
-        List <User> users = _userRepository.Download();
+        List<User> users = _userRepository.Download();
+        User foundUser = users.FirstOrDefault(u => u.Login == login && CheckPassword(password, u.Password));
 
-        foreach (var user in users)
-            if (user.Login == login && user.Password == password) return true;
-        
-        return false;
+        if (foundUser == null) return null;
+        return foundUser;
+
     }
 
     public void ChangeRole(int id)
@@ -55,4 +62,17 @@ public class UserUseCase : IUser
         var attributes = (DescriptionAttribute[])fieldInfo.GetCustomAttributes(typeof(DescriptionAttribute), false);
         return attributes.Length > 0 ? attributes[0].Description : value.ToString();
     }
+    
+    static string HashPassword(string password)
+    {
+        // Генерация соли и хеширование пароля
+        return BCrypt.Net.BCrypt.HashPassword(password);
+    }
+
+    static bool CheckPassword(string inputPassword, string hashedPassword)
+    {
+        // Проверка пароля
+        return BCrypt.Net.BCrypt.Verify(inputPassword, hashedPassword);
+    }
+    
 }

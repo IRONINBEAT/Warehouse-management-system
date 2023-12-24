@@ -14,9 +14,12 @@ public class AdminPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
 {
     private User _selectedUser;
     [Reactive] public ObservableCollection<User> AllUsers { get; }
-    public ReactiveCommand<Unit, IRoutableViewModel> Back { get; }
+    
+    [Reactive] private User AuthorizedUser { get; set; }
     public ReactiveCommand<Unit, IRoutableViewModel> AddUser { get; }
     public ReactiveCommand<Unit, IRoutableViewModel> DeleteUser { get; }
+    
+    public ReactiveCommand<Unit, IRoutableViewModel> Back { get; }
     public User SelectedUser
     {
         get => _selectedUser;
@@ -39,8 +42,12 @@ public class AdminPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
         foreach (var user in bufferAllUsers)
             AllUsers.Add(user);
+        
+        AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
+            new AuthorizedUserRepository(
+                "C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\AuthorizedUser.json"));
 
-        Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new AuthorizationViewModel()));
+        AuthorizedUser = _authorizationUseCase.GetUser();
 
 
         DeleteUser = ReactiveCommand.CreateFromObservable(() =>
@@ -48,7 +55,7 @@ public class AdminPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
             MessageBoxResult result = MessageBox.Show($"Вы уверены, что хотите удалить пользователя {SelectedUser.Login}?", "Удаление пользователя",
                 MessageBoxButton.YesNo, MessageBoxImage.Question);
 
-            if (result == MessageBoxResult.Yes)
+            if (result == MessageBoxResult.Yes && SelectedUser.Login != AuthorizedUser.Login && SelectedUser.Password != AuthorizedUser.Password)
             {
                 _userUseCase.Dismiss(SelectedUser);
                 return Router.Navigate.Execute(new AdminPageViewModel());
@@ -57,6 +64,10 @@ public class AdminPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
             return Router.Navigate.Execute(new AdminPageViewModel());
 
         });
+        
+        Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new AuthorizationViewModel()));
+        
+        AddUser = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new RegistrationViewModel()));
 
     }
     

@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
 using System.Windows.Media.Imaging;
@@ -30,7 +31,7 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
     public ProductAddingViewModel()
     {
-        for (int i = 0; i < 11; i++)
+        for (int i = 0; i < Enum.GetNames(typeof(ProductType)).Length; i++)
         {
             Type.Add((ProductType)i);
         }

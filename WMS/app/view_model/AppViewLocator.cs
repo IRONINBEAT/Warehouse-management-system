@@ -14,7 +14,9 @@ public class AppViewLocator : IViewLocator
             ProductAddingViewModel context => new ProductAdding {DataContext = context},
             FillingCustomerInfoViewModel context => new FillingInCustomerInfo{DataContext = context},
             UserPageViewModel context => new UserPage{DataContext = context},
-            AdminPageViewModel context => new AdminPage{DataContext = context}
+            AdminPageViewModel context => new AdminPage{DataContext = context},
+            RegistrationViewModel context => new Registration{DataContext = context},
+            StartWindowViewModel context => new StartWindow{DataContext = context}
         };
     }
 }

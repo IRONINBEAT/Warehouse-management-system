@@ -68,7 +68,6 @@ public class ProductUseCase : IProduct
             DateTime currentDate = DateTime.Now;
             string str = (currentDate.Ticks - centuryBegin.Ticks).ToString().Substring(7, 4);
             return Convert.ToInt32(str);
-
     }
     
     public string GetEnumDescription(Enum value)

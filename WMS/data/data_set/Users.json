@@ -1,12 +1,42 @@
 [
   {
     "ID": 0,
-    "Login": "test",
+    "Login": "admin",
     "Name": "Илья",
-    "Password": "t",
+    "Password": "$2a$11$X.Y4gkth0UmkApSJIJPvouPV2kZ8DHEjbkKEIUCe647zuVYhK3mDK",
     "Patronymic": "Петрович",
     "SurName": "Воронин",
-    "Role": 1,
+    "Role": 3,
     "GetFIO": "Воронин Илья Петрович"
+  },
+  {
+    "ID": 6198,
+    "Login": "vasya",
+    "Name": "Василий",
+    "Password": "$2a$11$PulOUQWqbD/eq5XfHp1YQOqSAQCgBDEBTmdCAwXUaHzzkXuOle6x2",
+    "Patronymic": "Васильевич",
+    "SurName": "Васильев",
+    "Role": 1,
+    "GetFIO": "Васильев Василий Васильевич"
+  },
+  {
+    "ID": 8478,
+    "Login": "danil",
+    "Name": "Данил",
+    "Password": "$2a$11$YA2JGR87to9dmoEyi0M98eSiC7HwBjddurRBopXaJiEy/7GfHoYk2",
+    "Patronymic": "Витальевич",
+    "SurName": "Гречухин",
+    "Role": 2,
+    "GetFIO": "Гречухин Данил Витальевич"
+  },
+  {
+    "ID": 9267,
+    "Login": "evgen",
+    "Name": "Евгения",
+    "Password": "$2a$11$W8sfIQpGhz07huz/f8ijmeW9BGAZIMjIwMkNwSzmAbC8GS8GsLOpa",
+    "Patronymic": "Николаевна",
+    "SurName": "Воронина",
+    "Role": 1,
+    "GetFIO": "Воронина Евгения Николаевна"
   }
 ]

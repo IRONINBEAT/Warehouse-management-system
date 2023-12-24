@@ -16,6 +16,7 @@
     </ItemGroup>
 
     <ItemGroup>
+        <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
         <PackageReference Include="MaskedTextBox" Version="0.1.3" />
         <PackageReference Include="MaterialDesignColors" Version="3.0.0-ci478" />
         <PackageReference Include="MaterialDesignThemes" Version="5.0.0-ci478" />
@@ -31,6 +32,11 @@
 
     <ItemGroup>
       <Folder Include="data\data_set\qr_codes\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <None Remove="data\data_set\Images\1639327381_4-papik-pro-p-sklad-klipart-4.png" />
+      <Resource Include="data\data_set\Images\1639327381_4-papik-pro-p-sklad-klipart-4.png" />
     </ItemGroup>
 
 </Project>

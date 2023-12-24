@@ -47,16 +47,17 @@
                             <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
                         </Border.Effect>
                         <StackPanel VerticalAlignment="Center">
-                            <Button Command="{Binding AddUser}" Content="Добавить пользователя" Margin="0 0 0 50">
+                            <Button Command="{Binding AddUser}" Content="Добавить пользователя" Margin="10">
                                 <Button.Background>
                                     <SolidColorBrush Color="#6c5fe3" />
                                 </Button.Background>
                             </Button>
-                            <Button Command="{Binding DeleteUser}" Content="Удалить пользователя" Style="{StaticResource MaterialDesignRaisedButton}">
+                            <Button Command="{Binding DeleteUser}" Content="Удалить пользователя" Margin="10" Style="{StaticResource MaterialDesignRaisedButton}">
                                 <Button.Background>
                                     <SolidColorBrush Color="DarkRed" />
                                 </Button.Background>
                             </Button>
+                            <Button Command="{Binding Back}" Content="Вернуться" Margin="10" Style="{StaticResource MaterialDesignRaisedButton}"/>
                         </StackPanel>
                     </Border>
                 </Grid>

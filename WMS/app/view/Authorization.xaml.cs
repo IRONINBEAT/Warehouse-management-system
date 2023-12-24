@@ -9,7 +9,7 @@ using WMS.app.view_model;
 
 namespace WMS.app.view;
 
-public partial class Authorization : ReactiveWindow<AuthorizationViewModel>
+public partial class Authorization
 {
 
     public Authorization()
