@@ -8,6 +8,9 @@
         xmlns:local="clr-namespace:WMS.app.view"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:viewModel="clr-namespace:WMS.app.view_model"
+        xmlns:visualBasic="clr-namespace:Microsoft.VisualBasic;assembly=Microsoft.VisualBasic.Core"
+        xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
+        xmlns:reactiveUi="clr-namespace:ReactiveUI;assembly=ReactiveUI"
         mc:Ignorable="d"
        Height="800" Width="1400">
     <UserControl.DataContext>
@@ -40,8 +43,8 @@
                 <Border BorderBrush="Black" BorderThickness="2" CornerRadius="10">
                     <TextBlock Text="Список товаров" TextAlignment="Center" FontWeight="Bold" FontSize="20"/>
                 </Border>
-                <ListView SelectedItem="{Binding SelectedProduct}" ItemsSource="{Binding  AllProducts}" Margin="0 20 0 0" Height="460">
-                    <ListView.View>
+                 <ListView SelectedItem="{Binding SelectedProduct}" ItemsSource="{Binding  AllProducts}" Margin="0 20 0 0" Height="460">
+                     <ListView.View>
                         <GridView>
                             <GridViewColumn Width="Auto" Header="ID" DisplayMemberBinding="{Binding Id}"/>
                             <GridViewColumn Width="Auto" Header="Название" DisplayMemberBinding="{Binding Name}"/>
@@ -73,7 +76,7 @@
                 <StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Статус товара:" TextAlignment="Left"></TextBlock>
-                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="Сделать" TextAlignment="Left"></TextBlock>
+                        <TextBlock Margin="5 0 0 0" FontSize="20" Foreground="Azure" Text="{Binding Status}" TextAlignment="Left"></TextBlock>
                     </StackPanel>
                     <StackPanel Orientation="Horizontal">
                         <TextBlock FontSize="20" Foreground="Azure" FontWeight="Bold" Text="Тип товара:" TextAlignment="Left"></TextBlock>
@@ -119,7 +122,7 @@
                 <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0"/>
             </Border.Effect>
             <StackPanel VerticalAlignment="Center">
-                <Button Content="Отслеживать товар" Margin="0 0 0 50">
+                <Button Command="{Binding ChangeInfo}" Content="Изменить информацию" Margin="0 0 0 50">
                     <Button.Background>
                         <SolidColorBrush Color="#6c5fe3" />
                     </Button.Background>

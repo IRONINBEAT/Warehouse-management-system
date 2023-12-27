@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
+using System.Windows;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using WMS.data.repository;
@@ -13,7 +14,7 @@ namespace WMS.app.view_model;
 
 public class FillingCustomerInfoViewModel : ViewModelBase, IRoutableViewModel, IScreen
 {
-    
+    private ProductUseCase _productUseCase;
     [Reactive] public string Name { get; set; }
     [Reactive] public string PhoneNumber { get; set; }
     [Reactive] public string Email { get; set; }
@@ -36,6 +37,9 @@ public class FillingCustomerInfoViewModel : ViewModelBase, IRoutableViewModel, I
     
     public FillingCustomerInfoViewModel(int productId)
     {
+        _productUseCase = new ProductUseCase(
+            new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
+        
         CustomerUseCase _customerUseCase = new CustomerUseCase(
             new CustomerRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Customers.json"));
         
@@ -51,12 +55,16 @@ public class FillingCustomerInfoViewModel : ViewModelBase, IRoutableViewModel, I
                 PostalCode, Type[SelectedIndex]);
 
 
-            if (_customerUseCase.Add(customer) != FillingCustomerInfoErrors.SUCCEED)
+            if (_customerUseCase.Add(customer) == FillingCustomerInfoErrors.SUCCEED)
             {
-                return Router.Navigate.Execute(new FillingCustomerInfoViewModel(productId));
+                var currentProduct = _productUseCase.Get(productId);
+                currentProduct.Status = ProductStatus.ON_THE_WAY_TO_CLIENT;
+                _productUseCase.Change(currentProduct);
+                return Router.Navigate.Execute(new MainWindowViewModel());
             }
-                
-            return Router.Navigate.Execute(new MainWindowViewModel());
+
+            MessageBox.Show("Информация введена неверно");
+            return Router.Navigate.Execute(new FillingCustomerInfoViewModel(productId));
         });
         
         Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new MainWindowViewModel()));

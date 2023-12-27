@@ -42,7 +42,7 @@ public class Product
     public ProductType Type { get; set; }
     public double NetWeight { get; set; }
     
-    
+    public ProductStatus Status { get; set; }
 
     
 }

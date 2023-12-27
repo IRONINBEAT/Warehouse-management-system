@@ -4,8 +4,8 @@ namespace WMS.domain.enumerate;
 
 public enum ProductType
 {
-    [Description("Электроника")]
-    Electronics,
+    [Description("Техника")]
+    Devices,
     [Description("Одежда")]
     Clothes,
     [Description("Обувь")]
@@ -25,5 +25,9 @@ public enum ProductType
     [Description("Книги и образование")]
     BooksEducation,
     [Description("Товары для кухни")]
-    KitchenSupplies
+    KitchenSupplies,
+    [Description("Мебель")]
+    Furniture,
+    [Description("Тара")]
+    Container
 }

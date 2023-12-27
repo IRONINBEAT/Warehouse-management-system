@@ -18,22 +18,11 @@ public class CustomerUseCase : ICustomer
     
     public FillingCustomerInfoErrors Add(Customer customer)
     {
-        if (string.IsNullOrEmpty(customer.Name)) return FillingCustomerInfoErrors.NO_NAME;
-        if (!IsPhoneNumber(customer.PhoneNumber, "0-000-000-00-00")) return FillingCustomerInfoErrors.INCORRECT_PHONE_NUMBER;
-        if (string.IsNullOrEmpty(customer.PhoneNumber)) return FillingCustomerInfoErrors.NO_PHONE_NUMBER;
-        if (!IsValidEmail(customer.Email)) return FillingCustomerInfoErrors.INCORRECT_EMAIL;
-        if (string.IsNullOrEmpty(customer.Email)) return FillingCustomerInfoErrors.NO_EMAIL;
-        
-        if (string.IsNullOrEmpty(customer.Country)) return FillingCustomerInfoErrors.NO_COUNTRY;
-        if (string.IsNullOrEmpty(customer.City)) return FillingCustomerInfoErrors.NO_CITY;
-        if (string.IsNullOrEmpty(customer.Street)) return FillingCustomerInfoErrors.NO_STREET;
-        if (string.IsNullOrEmpty(customer.HouseNumber)) return FillingCustomerInfoErrors.NO_HOUSE_NUMBER;
-        if (string.IsNullOrEmpty(customer.PostalCode)) return FillingCustomerInfoErrors.NO_POSTAL_CODE;
 
-        if (!customer.PostalCode.All(char.IsDigit)) return FillingCustomerInfoErrors.INCORRECT_POSTAL_CODE;
-        
-        _customerRepository.Add(customer);
-        return FillingCustomerInfoErrors.SUCCEED;
+        var result = ValidateCustomerInfo(customer);
+        if (result == FillingCustomerInfoErrors.SUCCEED)
+            _customerRepository.Add(customer);
+        return result;
     }
     
     private bool IsPhoneNumber(string input, string pattern)
@@ -66,5 +55,24 @@ public class CustomerUseCase : ICustomer
         catch {
             return false;
         }
+    }
+
+    public FillingCustomerInfoErrors ValidateCustomerInfo(Customer customer)
+    {
+        if (string.IsNullOrEmpty(customer.Name)) return FillingCustomerInfoErrors.NO_NAME;
+        if (!IsPhoneNumber(customer.PhoneNumber, "0-000-000-00-00")) return FillingCustomerInfoErrors.INCORRECT_PHONE_NUMBER;
+        if (string.IsNullOrEmpty(customer.PhoneNumber)) return FillingCustomerInfoErrors.NO_PHONE_NUMBER;
+        if (!IsValidEmail(customer.Email)) return FillingCustomerInfoErrors.INCORRECT_EMAIL;
+        if (string.IsNullOrEmpty(customer.Email)) return FillingCustomerInfoErrors.NO_EMAIL;
+        
+        if (string.IsNullOrEmpty(customer.Country)) return FillingCustomerInfoErrors.NO_COUNTRY;
+        if (string.IsNullOrEmpty(customer.City)) return FillingCustomerInfoErrors.NO_CITY;
+        if (string.IsNullOrEmpty(customer.Street)) return FillingCustomerInfoErrors.NO_STREET;
+        if (string.IsNullOrEmpty(customer.HouseNumber)) return FillingCustomerInfoErrors.NO_HOUSE_NUMBER;
+        if (string.IsNullOrEmpty(customer.PostalCode)) return FillingCustomerInfoErrors.NO_POSTAL_CODE;
+
+        if (!customer.PostalCode.All(char.IsDigit)) return FillingCustomerInfoErrors.INCORRECT_POSTAL_CODE;
+
+        return FillingCustomerInfoErrors.SUCCEED;
     }
 }

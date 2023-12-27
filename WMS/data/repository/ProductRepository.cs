@@ -21,6 +21,8 @@ public class ProductRepository : SerializationRepository<Product>
     {
         RemoveItem(product);
     }
+
+    public void Change(Product product) => ChangeEntity(product);
     public ProductRepository(string filePath) : base(filePath)
     {
     }

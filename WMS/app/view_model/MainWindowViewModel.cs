@@ -6,6 +6,7 @@ using System.Linq;
 using System.Reactive;
 using System.Reflection;
 using System.Windows;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
@@ -28,9 +29,12 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
     public ReactiveCommand<Unit, IRoutableViewModel> WriteOff { get; set; }
     public ReactiveCommand<Unit, IRoutableViewModel> PersonalAccount { get; set; }
     
+    public ReactiveCommand<Unit, IRoutableViewModel> ChangeInfo { get; set; }
+    
     [Reactive] public User AuthorizedUser { get; set; }
 
     [Reactive] public BitmapImage QrCode { get; set; }
+    [Reactive] public string Status { get; set; }
 
     [Reactive] public ObservableCollection<Product> AllProducts { get; set; }
     
@@ -45,9 +49,11 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
             _selectedProduct = value;
             ProductType = _productUseCase.GetEnumDescription(_selectedProduct.Type);
             QrCode = _qrCodeUseCase.Load(_selectedProduct);
+            Status = _productUseCase.GetEnumDescription(_selectedProduct.Status);
             OnPropertyChanged(nameof(QrCode));
             OnPropertyChanged(nameof(SelectedProduct));
             OnPropertyChanged(nameof(ProductType));
+            OnPropertyChanged(nameof(Status));
         }
     }
 
@@ -83,6 +89,18 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
             AllProducts.Add(product);
 
         
+        ChangeInfo = ReactiveCommand.CreateFromObservable(() =>
+        {
+            if (SelectedProduct != null)
+            {
+                if(AuthorizedUser.Role <= Role.SENIORSTOREKEEPER) 
+                    return Router.Navigate.Execute(new ProductAddingViewModel(SelectedProduct));
+                MessageBox.Show("Для вашей должности данная функция недоступна.");
+                return Router.Navigate.Execute(new MainWindowViewModel());
+            }
+            MessageBox.Show("Товар не выбран.");
+            return Router.Navigate.Execute(new MainWindowViewModel());
+        });
         
         AddProduct = ReactiveCommand.CreateFromObservable(() =>
         {
@@ -90,6 +108,7 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
                 return Router.Navigate.Execute(new ProductAddingViewModel());
             MessageBox.Show("Для вашей должности данная функция недоступна.");
             return Router.Navigate.Execute(new MainWindowViewModel());
+            
         });
 
         PersonalAccount = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new UserPageViewModel(AuthorizedUser.GetFIO, AuthorizedUser.Role)));
@@ -110,19 +129,24 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
         WriteOff = ReactiveCommand.CreateFromObservable(() =>
         {
-            if (AuthorizedUser.Role <= Role.SENIORSTOREKEEPER)
+            if (SelectedProduct != null)
             {
-                MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите списать товар?","Списание товара",
-                    MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-                if (result == MessageBoxResult.Yes)
+                if (AuthorizedUser.Role <= Role.SENIORSTOREKEEPER)
                 {
-                    _productUseCase.WriteOff(SelectedProduct);
+                    MessageBoxResult result = MessageBox.Show("Вы уверены, что хотите списать товар?","Списание товара",
+                        MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                    if (result == MessageBoxResult.Yes)
+                    {
+                        _productUseCase.WriteOff(SelectedProduct);
+                        return Router.Navigate.Execute(new MainWindowViewModel());
+                    }
                     return Router.Navigate.Execute(new MainWindowViewModel());
                 }
+                MessageBox.Show("Для вашей должности данная функция недоступна.");
                 return Router.Navigate.Execute(new MainWindowViewModel());
             }
-            MessageBox.Show("Для вашей должности данная функция недоступна.");
+            MessageBox.Show("Товар не выбран.");
             return Router.Navigate.Execute(new MainWindowViewModel());
         });
 

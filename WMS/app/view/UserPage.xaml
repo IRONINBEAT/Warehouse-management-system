@@ -55,32 +55,8 @@
                         </StackPanel>
                     </Grid>
                 </Border>
-                <Border Background="#bdd0c8" Width="700" Margin="0 230 0 0" VerticalAlignment="Top"
-                        HorizontalAlignment="Center" Padding="20" CornerRadius="30">
-                    <Border.Effect>
-                        <DropShadowEffect BlurRadius="30" Color="MidnightBlue" ShadowDepth="0" />
-                    </Border.Effect>
-                    <Grid Height="180">
-                        <StackPanel VerticalAlignment="Top">
-                            <TextBlock Margin="0 0 0 5" VerticalAlignment="Center" Text="Акт приёма-передачи" />
-                            <Button Content="Открыть" HorizontalAlignment="Left"></Button>
-                        </StackPanel>
-
-                        <StackPanel VerticalAlignment="Center">
-                            <TextBlock Margin="0 0 0 5" VerticalAlignment="Center" Text="Квитанция клиенту" />
-                            <Button Content="Открыть" HorizontalAlignment="Left"></Button>
-                        </StackPanel>
-
-                        <StackPanel VerticalAlignment="Bottom">
-                            <TextBlock Margin="0 0 0 5" VerticalAlignment="Center"
-                                       Text="Накладная на передачу готовой продукции" />
-                            <Button Content="Открыть" HorizontalAlignment="Left"></Button>
-                        </StackPanel>
-                        
-                    </Grid>
-                    
-                </Border>
-                    <StackPanel HorizontalAlignment="Center" Margin="0 470 0 0">
+                
+                    <StackPanel HorizontalAlignment="Center" Margin="0 240 0 0">
                         <Button Command="{Binding Back}"  Content="Назад" Style="{StaticResource MaterialDesignOutlinedButton}"/>
                     </StackPanel>
                 </Grid>

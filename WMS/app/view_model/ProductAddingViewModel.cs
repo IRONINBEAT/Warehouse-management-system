@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
+using System.Windows;
 using System.Windows.Media.Imaging;
 using DynamicData;
 using ReactiveUI;
@@ -15,6 +16,9 @@ namespace WMS.app.view_model;
 
 public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
 {
+    private ProductUseCase _productUseCase;
+    private QRCodeUseCase _qrCodeUseCase;
+    private AuthorizationUseCase _authorizationUseCase;
     [Reactive] public string Name { get; set; }
     [Reactive] public string Description { get; set; }
     [Reactive] public string Manufacturer { get; set; }
@@ -29,21 +33,65 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
     public ReactiveCommand<Unit, IRoutableViewModel> Done { get; }
     public ReactiveCommand<Unit, IRoutableViewModel> Back { get; }
 
-    public ProductAddingViewModel()
+    
+    public ProductAddingViewModel(Product product)
     {
-        for (int i = 0; i < Enum.GetNames(typeof(ProductType)).Length; i++)
-        {
-            Type.Add((ProductType)i);
-        }
-        
-        ProductUseCase _productUseCase = new ProductUseCase(
+        _productUseCase = new ProductUseCase(
             new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
-
-        AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
+        
+        _authorizationUseCase = new AuthorizationUseCase(
             new AuthorizedUserRepository(
                 @"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\AuthorizedUser.json"));
 
-        QRCodeUseCase _qrCodeUseCase = new QRCodeUseCase();
+        _qrCodeUseCase = new QRCodeUseCase();
+        
+        for (int i = 0; i < Enum.GetNames(typeof(ProductType)).Length; i++)
+            Type.Add((ProductType)i);
+        
+        Name = product.Name;
+        Description = product.Description;
+        Manufacturer = product.Manufacturer.CompanyName;
+        Width = product.Dimensions.Width;
+        Height = product.Dimensions.Height;
+        Length = product.Dimensions.Length;
+        Weight = product.NetWeight;
+        Quantity = product.Quantity;
+        
+        
+        Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new MainWindowViewModel()));
+        
+        Done = ReactiveCommand.CreateFromObservable(() =>
+        {
+            
+            Product newProduct = new Product("21541235661", product.Id, Manufacturer, Name, Quantity, 
+                Description, Width, Height, Length, Type[SelectedIndex],
+                Weight, _authorizationUseCase.GetUser());
+
+            if (_productUseCase.ValidateProductInfo(newProduct) == ProductAddingErrors.SUCCEED && Name == product.Name)
+            {
+                _productUseCase.Change(newProduct);
+                return Router.Navigate.Execute(new MainWindowViewModel());
+            }
+
+            MessageBox.Show("Имя товара не соответствует исходному или иная информация введена неверно");
+            return Router.Navigate.Execute(new MainWindowViewModel());
+
+        });
+    }
+
+    public ProductAddingViewModel()
+    {
+        for (int i = 0; i < Enum.GetNames(typeof(ProductType)).Length; i++)
+            Type.Add((ProductType)i);
+        
+        _productUseCase = new ProductUseCase(
+            new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
+
+        _authorizationUseCase = new AuthorizationUseCase(
+            new AuthorizedUserRepository(
+                @"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\AuthorizedUser.json"));
+
+        _qrCodeUseCase = new QRCodeUseCase();
 
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
@@ -52,8 +100,15 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
                 Description, Width, Height, Length, Type[SelectedIndex],
                 Weight, _authorizationUseCase.GetUser());
             
+            product.Status = ProductStatus.IN_STOCK;
             if (_productUseCase.Add(product) != ProductAddingErrors.SUCCEED)
+            {
+                MessageBox.Show("Информация введена неверно");
                 return Router.Navigate.Execute(new ProductAddingViewModel());
+            }
+
+            
+
             _qrCodeUseCase.Generate(product);
             return Router.Navigate.Execute(new MainWindowViewModel());
         });

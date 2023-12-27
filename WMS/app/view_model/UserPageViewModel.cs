@@ -1,6 +1,11 @@
-﻿using System.ComponentModel;
+﻿using System;
+using System.ComponentModel;
+using System.Diagnostics;
 using System.Reactive;
 using System.Windows;
+using DocumentFormat.OpenXml.Packaging;
+using Microsoft.Office.Interop.Word;
+using Microsoft.Win32;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using WMS.data.repository;
@@ -52,7 +57,7 @@ public class UserPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
         
     }
     
-
+    
     public void RaisePropertyChanged(PropertyChangedEventArgs args)
     {
         throw new System.NotImplementedException();

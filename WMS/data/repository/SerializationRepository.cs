@@ -95,24 +95,23 @@ public abstract class SerializationRepository<T>
         }
     }
 
-    protected void Change(T obj)
+    protected void ChangeEntity(T obj)
     {
-        var newObj = Deserialize();
-        var oldObj = Deserialize();
-        foreach (var o in oldObj)
+        var newEntities = Deserialize();
+        var oldEntities = Deserialize();
+        foreach (var entity in oldEntities)
         {
-            if (!CompareEntities(o, obj)) continue;
-            for (var i = 0; i < oldObj.Count; i++)
-            {
-                if (CompareEntities(o, obj))
+            if (!CompareEntities(obj, entity)) continue;
+            for (var i = 0; i < oldEntities.Count; i++)
+                if (CompareEntities(oldEntities[i], entity))
                 {
-                    newObj.RemoveAt(i);
+                    newEntities.RemoveAt(i);
                     break;
                 }
-                newObj.Add(obj);
-                Serialize(newObj);
-                break;
-            }
+
+            newEntities.Add(obj);
+            Serialize(newEntities);
+            break;
         }
     }
     
@@ -129,4 +128,4 @@ public abstract class SerializationRepository<T>
             FileOptions.None
         );
     }
-}
+}    

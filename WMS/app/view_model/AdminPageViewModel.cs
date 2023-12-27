@@ -52,17 +52,22 @@ public class AdminPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
         DeleteUser = ReactiveCommand.CreateFromObservable(() =>
         {
-            MessageBoxResult result = MessageBox.Show($"Вы уверены, что хотите удалить пользователя {SelectedUser.Login}?", "Удаление пользователя",
-                MessageBoxButton.YesNo, MessageBoxImage.Question);
-
-            if (result == MessageBoxResult.Yes && SelectedUser.Login != AuthorizedUser.Login && SelectedUser.Password != AuthorizedUser.Password)
+            if (SelectedUser.Login != AuthorizedUser.Login && SelectedUser.Password != AuthorizedUser.Password)
             {
-                _userUseCase.Dismiss(SelectedUser);
+                MessageBoxResult result = MessageBox.Show($"Вы уверены, что хотите удалить пользователя {SelectedUser.Login}?", "Удаление пользователя",
+                    MessageBoxButton.YesNo, MessageBoxImage.Question);
+
+                if (result == MessageBoxResult.Yes)
+                {
+                    _userUseCase.Dismiss(SelectedUser);
+                    return Router.Navigate.Execute(new AdminPageViewModel());
+                }
+
                 return Router.Navigate.Execute(new AdminPageViewModel());
             }
 
+            MessageBox.Show("Вы не можете удалить пользователя, выполняющего роль администратора.");
             return Router.Navigate.Execute(new AdminPageViewModel());
-
         });
         
         Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new AuthorizationViewModel()));

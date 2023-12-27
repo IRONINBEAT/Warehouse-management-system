@@ -1,34 +1,68 @@
 [
   {
     "Code": "21541235661",
-    "Quantity": 2,
-    "Description": "апапапапа",
+    "Quantity": 18,
+    "Description": "Многофункциональное кресло, которое легко трансформируется в удобную кровать. Идеально подходит для отдыха и сна.",
     "Dimensions": {
-      "Width": 2,
-      "Height": 2,
+      "Width": 1.2,
+      "Height": 0.8,
       "Length": 2,
-      "ToString": "(2x2x2) м\u00B3"
+      "ToString": "(1,2x0,8x2) м\u00B3"
     },
-    "Id": 5131,
+    "Id": 1503,
     "IntegratingPerson": {
-      "ID": 9267,
-      "Login": "evgen",
-      "Name": "Евгения",
-      "Password": "$2a$11$W8sfIQpGhz07huz/f8ijmeW9BGAZIMjIwMkNwSzmAbC8GS8GsLOpa",
-      "Patronymic": "Николаевна",
-      "SurName": "Воронина",
-      "Role": 1,
-      "GetFIO": "Воронина Евгения Николаевна"
+      "ID": 3768,
+      "Login": "petr",
+      "Name": "Пётр",
+      "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+      "Patronymic": "Сергеевич",
+      "SurName": "Воронин",
+      "Role": 0,
+      "GetFIO": "Воронин Пётр Сергеевич"
     },
     "Manufacturer": {
       "Address": {},
-      "CompanyName": "папапапап",
+      "CompanyName": "ComfortFurniture",
       "Email": null,
       "Id": 0,
       "PhoneNumber": null
     },
-    "Name": "аапапапа",
-    "Type": 0,
-    "NetWeight": 2
+    "Name": "Кресло-кровать ",
+    "Type": 11,
+    "NetWeight": 25.5,
+    "Status": 0
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 20,
+    "Description": "Инструмент для разрезания тонких материалов (ткани, бумаги, фольги, жести и т. п.) и стрижки (шерсти, волос).",
+    "Dimensions": {
+      "Width": 0.05,
+      "Height": 0.005,
+      "Length": 0.1,
+      "ToString": "(0,05x0,005x0,1) м\u00B3"
+    },
+    "Id": 6741,
+    "IntegratingPerson": {
+      "ID": 3768,
+      "Login": "petr",
+      "Name": "Пётр",
+      "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+      "Patronymic": "Сергеевич",
+      "SurName": "Воронин",
+      "Role": 0,
+      "GetFIO": "Воронин Пётр Сергеевич"
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "Эрих Краузе",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "Ножницы",
+    "Type": 7,
+    "NetWeight": 0.1,
+    "Status": 1
   }
 ]
