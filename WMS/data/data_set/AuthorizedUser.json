@@ -7,7 +7,47 @@
     "Patronymic": "Сергеевич",
     "SurName": "Воронин",
     "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
+    "GetFio": "Воронин Пётр Сергеевич"
+  },
+  {
+    "ID": 0,
+    "Login": "admin",
+    "Name": "Илья",
+    "Password": "$2a$11$X.Y4gkth0UmkApSJIJPvouPV2kZ8DHEjbkKEIUCe647zuVYhK3mDK",
+    "Patronymic": "Петрович",
+    "SurName": "Воронин",
+    "Role": 3,
+    "GetFio": "Воронин Илья Петрович"
+  },
+  {
+    "ID": 1699,
+    "Login": "andrew",
+    "Name": "Андрей",
+    "Password": "$2a$11$wJxCZGY6ow2Z4k7Ub4KnSuR4.v3t/2Ep85RrFExk7.X0uxZCRibrm",
+    "Patronymic": "Васильевич",
+    "SurName": "Привалов",
+    "Role": 2,
+    "GetFio": "Привалов Андрей Васильевич"
+  },
+  {
+    "ID": 3768,
+    "Login": "petr",
+    "Name": "Пётр",
+    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+    "Patronymic": "Сергеевич",
+    "SurName": "Воронин",
+    "Role": 0,
+    "GetFio": "Воронин Пётр Сергеевич"
+  },
+  {
+    "ID": 3768,
+    "Login": "petr",
+    "Name": "Пётр",
+    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+    "Patronymic": "Сергеевич",
+    "SurName": "Воронин",
+    "Role": 0,
+    "GetFio": "Воронин Пётр Сергеевич"
   },
   {
     "ID": 9267,
@@ -17,7 +57,7 @@
     "Patronymic": "Николаевна",
     "SurName": "Воронина",
     "Role": 1,
-    "GetFIO": "Воронина Евгения Николаевна"
+    "GetFio": "Воронина Евгения Николаевна"
   },
   {
     "ID": 9267,
@@ -27,17 +67,7 @@
     "Patronymic": "Николаевна",
     "SurName": "Воронина",
     "Role": 1,
-    "GetFIO": "Воронина Евгения Николаевна"
-  },
-  {
-    "ID": 3768,
-    "Login": "petr",
-    "Name": "Пётр",
-    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
-    "Patronymic": "Сергеевич",
-    "SurName": "Воронин",
-    "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
+    "GetFio": "Воронина Евгения Николаевна"
   },
   {
     "ID": 0,
@@ -47,96 +77,16 @@
     "Patronymic": "Петрович",
     "SurName": "Воронин",
     "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
+    "GetFio": "Воронин Илья Петрович"
   },
   {
-    "ID": 3768,
-    "Login": "petr",
-    "Name": "Пётр",
-    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
-    "Patronymic": "Сергеевич",
-    "SurName": "Воронин",
-    "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
-  },
-  {
-    "ID": 3768,
-    "Login": "petr",
-    "Name": "Пётр",
-    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
-    "Patronymic": "Сергеевич",
-    "SurName": "Воронин",
-    "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
-  },
-  {
-    "ID": 3768,
-    "Login": "petr",
-    "Name": "Пётр",
-    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
-    "Patronymic": "Сергеевич",
-    "SurName": "Воронин",
-    "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
-  },
-  {
-    "ID": 3768,
-    "Login": "petr",
-    "Name": "Пётр",
-    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
-    "Patronymic": "Сергеевич",
-    "SurName": "Воронин",
-    "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
-  },
-  {
-    "ID": 3768,
-    "Login": "petr",
-    "Name": "Пётр",
-    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
-    "Patronymic": "Сергеевич",
-    "SurName": "Воронин",
-    "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
-  },
-  {
-    "ID": 0,
-    "Login": "admin",
-    "Name": "Илья",
-    "Password": "$2a$11$X.Y4gkth0UmkApSJIJPvouPV2kZ8DHEjbkKEIUCe647zuVYhK3mDK",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "admin",
-    "Name": "Илья",
-    "Password": "$2a$11$X.Y4gkth0UmkApSJIJPvouPV2kZ8DHEjbkKEIUCe647zuVYhK3mDK",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 0,
-    "Login": "admin",
-    "Name": "Илья",
-    "Password": "$2a$11$X.Y4gkth0UmkApSJIJPvouPV2kZ8DHEjbkKEIUCe647zuVYhK3mDK",
-    "Patronymic": "Петрович",
-    "SurName": "Воронин",
-    "Role": 3,
-    "GetFIO": "Воронин Илья Петрович"
-  },
-  {
-    "ID": 3768,
-    "Login": "petr",
-    "Name": "Пётр",
-    "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
-    "Patronymic": "Сергеевич",
-    "SurName": "Воронин",
-    "Role": 0,
-    "GetFIO": "Воронин Пётр Сергеевич"
+    "ID": 1699,
+    "Login": "andrew",
+    "Name": "Андрей",
+    "Password": "$2a$11$wJxCZGY6ow2Z4k7Ub4KnSuR4.v3t/2Ep85RrFExk7.X0uxZCRibrm",
+    "Patronymic": "Васильевич",
+    "SurName": "Привалов",
+    "Role": 2,
+    "GetFio": "Привалов Андрей Васильевич"
   }
 ]

@@ -111,7 +111,7 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
             
         });
 
-        PersonalAccount = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new UserPageViewModel(AuthorizedUser.GetFIO, AuthorizedUser.Role)));
+        PersonalAccount = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new UserPageViewModel(AuthorizedUser.GetFio, AuthorizedUser.Role)));
         
         SendToClient = ReactiveCommand.CreateFromObservable(() =>
         {

@@ -62,20 +62,29 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
         
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
-            
-            Product newProduct = new Product("21541235661", product.Id, Manufacturer, Name, Quantity, 
-                Description, Width, Height, Length, Type[SelectedIndex],
-                Weight, _authorizationUseCase.GetUser());
 
-            if (_productUseCase.ValidateProductInfo(newProduct) == ProductAddingErrors.SUCCEED && Name == product.Name)
+            try
             {
-                _productUseCase.Change(newProduct);
-                return Router.Navigate.Execute(new MainWindowViewModel());
+                Product newProduct = new Product("21541235661", product.Id, Manufacturer, Name, Quantity,
+                    Description, Width, Height, Length, Type[SelectedIndex],
+                    Weight, _authorizationUseCase.GetUser());
+
+                if (_productUseCase.ValidateProductInfo(newProduct) == ProductAddingErrors.SUCCEED &&
+                    Name == product.Name)
+                {
+                    _productUseCase.Change(newProduct);
+                    return Router.Navigate.Execute(new MainWindowViewModel());
+                }
+
+                MessageBox.Show("Имя товара не соответствует исходному или иная информация введена неверно");
+                return Router.Navigate.Execute(new ProductAddingViewModel(product));
             }
-
-            MessageBox.Show("Имя товара не соответствует исходному или иная информация введена неверно");
-            return Router.Navigate.Execute(new MainWindowViewModel());
-
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}");
+                return Router.Navigate.Execute(new ProductAddingViewModel(product));
+            }
+            
         });
     }
 
@@ -83,7 +92,7 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
     {
         for (int i = 0; i < Enum.GetNames(typeof(ProductType)).Length; i++)
             Type.Add((ProductType)i);
-        
+
         _productUseCase = new ProductUseCase(
             new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
 
@@ -95,25 +104,24 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
-            
-            Product product = new Product("21541235661", _productUseCase.GenerateId(), Manufacturer, Name, Quantity, 
-                Description, Width, Height, Length, Type[SelectedIndex],
-                Weight, _authorizationUseCase.GetUser());
-            
-            product.Status = ProductStatus.IN_STOCK;
-            if (_productUseCase.Add(product) != ProductAddingErrors.SUCCEED)
+            try
             {
-                MessageBox.Show("Информация введена неверно");
+                Product product = new Product("21541235661", _productUseCase.GenerateId(), Manufacturer, Name, Quantity,
+                    Description, Width, Height, Length, Type[SelectedIndex],
+                    Weight, _authorizationUseCase.GetUser());
+                product.Status = ProductStatus.IN_STOCK;
+                _productUseCase.Add(product);
+                _qrCodeUseCase.Generate(product);
+                return Router.Navigate.Execute(new MainWindowViewModel());
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}");
                 return Router.Navigate.Execute(new ProductAddingViewModel());
             }
-
-            
-
-            _qrCodeUseCase.Generate(product);
-            return Router.Navigate.Execute(new MainWindowViewModel());
         });
 
-        Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new MainWindowViewModel()));
+    Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new MainWindowViewModel()));
     }
     
     public event PropertyChangingEventHandler? PropertyChanging;

@@ -1,6 +1,8 @@
-﻿using System.Collections.ObjectModel;
+﻿using System;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reactive;
+using System.Windows;
 using ReactiveUI;
 using ReactiveUI.Fody.Helpers;
 using WMS.data.repository;
@@ -50,10 +52,20 @@ public class RegistrationViewModel : ViewModelBase, IRoutableViewModel, IScreen
         
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
-            User user = new User(_productUseCase.GenerateId(), Login, Name, Password, Patronymic, Surname, Roles[SelectedIndex]);
-            
-            if (_userUseCase.Register(user))
-                return ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new AdminPageViewModel()));
+            try
+            {
+                User user = new User(_productUseCase.GenerateId(), Login, Name, Password, Patronymic, Surname,
+                    Roles[SelectedIndex]);
+                if (_userUseCase.Register(user))
+                    return ReactiveCommand.CreateFromObservable(() =>
+                        Router.Navigate.Execute(new AdminPageViewModel()));
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}");
+                return ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new RegistrationViewModel()));
+            }
             return ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new RegistrationViewModel()));
         });
     }

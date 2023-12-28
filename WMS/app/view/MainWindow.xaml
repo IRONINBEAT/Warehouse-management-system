@@ -26,7 +26,7 @@
             <rxui:RoutedViewHost.DefaultContent>
                 <Grid>
                     <StackPanel Margin="20">
-            <TextBlock HorizontalAlignment="Left" Margin="35 50 0 0" Text="{Binding AuthorizedUser.GetFIO}" Foreground="Azure"/>
+            <TextBlock HorizontalAlignment="Left" Margin="35 50 0 0" Text="{Binding AuthorizedUser.GetFio}" Foreground="Azure"/>
             <Button Command="{Binding PersonalAccount}" VerticalAlignment="Top" HorizontalAlignment="Left" Margin="35 15 0 0 " Content="Личный кабинет">
             </Button>
         </StackPanel>

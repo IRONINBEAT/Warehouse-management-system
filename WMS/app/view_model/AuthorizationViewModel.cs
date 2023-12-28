@@ -46,21 +46,27 @@ public class AuthorizationViewModel : ViewModelBase, IRoutableViewModel, IScreen
             AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
                 new AuthorizedUserRepository(
                     @"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\AuthorizedUser.json"));
-
-            User foundUser = _userUseCase.Authorize(Login, Password);
-            
-            if (foundUser != null)
+            try
             {
-                _authorizationUseCase.SaveUser(foundUser);
-
-                if (_authorizationUseCase.GetUser().Role == Role.ADMIN)
+                User foundUser = _userUseCase.Authorize(Login, Password);
+                if (foundUser != null)
                 {
-                    return Router.Navigate.Execute(new AdminPageViewModel());
+                    _authorizationUseCase.SaveUser(foundUser);
+
+                    if (_authorizationUseCase.GetUser().Role == Role.ADMIN)
+                    {
+                        return Router.Navigate.Execute(new AdminPageViewModel());
+                    }
+                    return Router.Navigate.Execute(new MainWindowViewModel());
                 }
-                return Router.Navigate.Execute(new MainWindowViewModel());
+                MessageBox.Show("Пользователь с указанным логином или паролем не найден.");
+                return Router.Navigate.Execute(new AuthorizationViewModel());
             }
-            MessageBox.Show("Пользователь с указанным логином или паролем не найден.");
-            return Router.Navigate.Execute(new AuthorizationViewModel());
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}");
+                return Router.Navigate.Execute(new AuthorizationViewModel());
+            }
         });
     }
 

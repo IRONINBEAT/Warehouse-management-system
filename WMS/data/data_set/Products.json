@@ -18,7 +18,7 @@
       "Patronymic": "Сергеевич",
       "SurName": "Воронин",
       "Role": 0,
-      "GetFIO": "Воронин Пётр Сергеевич"
+      "GetFio": "Воронин Пётр Сергеевич"
     },
     "Manufacturer": {
       "Address": {},
@@ -51,7 +51,7 @@
       "Patronymic": "Сергеевич",
       "SurName": "Воронин",
       "Role": 0,
-      "GetFIO": "Воронин Пётр Сергеевич"
+      "GetFio": "Воронин Пётр Сергеевич"
     },
     "Manufacturer": {
       "Address": {},

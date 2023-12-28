@@ -50,21 +50,22 @@ public class FillingCustomerInfoViewModel : ViewModelBase, IRoutableViewModel, I
         
         Done = ReactiveCommand.CreateFromObservable(() =>
         {
-
-            Customer customer = new Customer(productId, Name, PhoneNumber, Email, Country, City, Street, HouseNumber,
-                PostalCode, Type[SelectedIndex]);
-
-
-            if (_customerUseCase.Add(customer) == FillingCustomerInfoErrors.SUCCEED)
+            try
             {
+                Customer customer = new Customer(productId, Name, PhoneNumber, Email, Country, City, Street,
+                    HouseNumber,
+                    PostalCode, Type[SelectedIndex]);
                 var currentProduct = _productUseCase.Get(productId);
                 currentProduct.Status = ProductStatus.ON_THE_WAY_TO_CLIENT;
                 _productUseCase.Change(currentProduct);
                 return Router.Navigate.Execute(new MainWindowViewModel());
             }
-
-            MessageBox.Show("Информация введена неверно");
-            return Router.Navigate.Execute(new FillingCustomerInfoViewModel(productId));
+            catch (Exception e)
+            {
+                MessageBox.Show($"{e}");
+                return Router.Navigate.Execute(new FillingCustomerInfoViewModel(productId));
+            }
+            
         });
         
         Back = ReactiveCommand.CreateFromObservable(() => Router.Navigate.Execute(new MainWindowViewModel()));
