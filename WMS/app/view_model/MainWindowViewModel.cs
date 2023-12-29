@@ -70,12 +70,11 @@ public class MainWindowViewModel : ViewModelBase, IRoutableViewModel, IScreen
         
         AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
             new AuthorizedUserRepository(
-                "C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\AuthorizedUser.json"));
+                @"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\AuthorizedUser.json"));
 
         AuthorizedUser = _authorizationUseCase.GetUser();
 
-        _productUseCase = new ProductUseCase(
-            new ProductRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Products.json"));
+        _productUseCase = new ProductUseCase(ProductRepository.GetInstance());
         
         _qrCodeUseCase = new QRCodeUseCase();
         

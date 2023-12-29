@@ -35,6 +35,6 @@ public class UserRepository : SerializationRepository<User>
     
     public static UserRepository GetInstance()
     {
-        return _globalRepositoryInstance ??= new UserRepository("../../../../data/data_set/Users.json");
+        return _globalRepositoryInstance ??= new UserRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Users.json");
     }
 }

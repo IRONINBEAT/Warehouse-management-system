@@ -33,8 +33,7 @@ public class AdminPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
     public AdminPageViewModel()
     {
-        UserUseCase _userUseCase = new UserUseCase(
-            new UserRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Users.json"));
+        UserUseCase _userUseCase = new UserUseCase(UserRepository.GetInstance());
 
         var bufferAllUsers = _userUseCase.GetAllUsers();
         

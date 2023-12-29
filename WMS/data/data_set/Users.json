@@ -10,16 +10,6 @@
     "GetFio": "Воронин Илья Петрович"
   },
   {
-    "ID": 9267,
-    "Login": "evgen",
-    "Name": "Евгения",
-    "Password": "$2a$11$W8sfIQpGhz07huz/f8ijmeW9BGAZIMjIwMkNwSzmAbC8GS8GsLOpa",
-    "Patronymic": "Николаевна",
-    "SurName": "Воронина",
-    "Role": 1,
-    "GetFio": "Воронина Евгения Николаевна"
-  },
-  {
     "ID": 3768,
     "Login": "petr",
     "Name": "Пётр",
@@ -38,5 +28,15 @@
     "SurName": "Привалов",
     "Role": 2,
     "GetFio": "Привалов Андрей Васильевич"
+  },
+  {
+    "ID": 8183,
+    "Login": "login",
+    "Name": "asdas",
+    "Password": "$2a$11$VfhERlETtSy6va2JoQIkQeGWwgIOA2DnizDUiupAB8KBbCwrR6NVO",
+    "Patronymic": "dasdas",
+    "SurName": "dasdasdasd",
+    "Role": 2,
+    "GetFio": "dasdasdasd asdas dasdas"
   }
 ]

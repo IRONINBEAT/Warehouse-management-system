@@ -1,15 +1,15 @@
 [
   {
     "Code": "21541235661",
-    "Quantity": 18,
-    "Description": "Многофункциональное кресло, которое легко трансформируется в удобную кровать. Идеально подходит для отдыха и сна.",
+    "Quantity": 20,
+    "Description": "Современный смартфон с высоким разрешением экрана, мощным процессором и продвинутой системой камер.",
     "Dimensions": {
-      "Width": 1.2,
-      "Height": 0.8,
-      "Length": 2,
-      "ToString": "(1,2x0,8x2) м\u00B3"
+      "Width": 0.07,
+      "Height": 0.15,
+      "Length": 0.009,
+      "ToString": "(0,07x0,15x0,009) м\u00B3"
     },
-    "Id": 1503,
+    "Id": 2368,
     "IntegratingPerson": {
       "ID": 3768,
       "Login": "petr",
@@ -22,27 +22,27 @@
     },
     "Manufacturer": {
       "Address": {},
-      "CompanyName": "ComfortFurniture",
+      "CompanyName": " XYZ Electronics",
       "Email": null,
       "Id": 0,
       "PhoneNumber": null
     },
-    "Name": "Кресло-кровать ",
-    "Type": 11,
-    "NetWeight": 25.5,
+    "Name": " Смартфон",
+    "Type": 0,
+    "NetWeight": 0.15,
     "Status": 0
   },
   {
     "Code": "21541235661",
-    "Quantity": 20,
-    "Description": "Инструмент для разрезания тонких материалов (ткани, бумаги, фольги, жести и т. п.) и стрижки (шерсти, волос).",
+    "Quantity": 3,
+    "Description": "Стильное и теплое женское пальто с модным дизайном и комфортной посадкой.",
     "Dimensions": {
-      "Width": 0.05,
-      "Height": 0.005,
-      "Length": 0.1,
-      "ToString": "(0,05x0,005x0,1) м\u00B3"
+      "Width": 0.5,
+      "Height": 0.1,
+      "Length": 0.8,
+      "ToString": "(0,5x0,1x0,8) м\u00B3"
     },
-    "Id": 6741,
+    "Id": 3147,
     "IntegratingPerson": {
       "ID": 3768,
       "Login": "petr",
@@ -55,14 +55,146 @@
     },
     "Manufacturer": {
       "Address": {},
-      "CompanyName": "Эрих Краузе",
+      "CompanyName": "FashionStyle Wear",
       "Email": null,
       "Id": 0,
       "PhoneNumber": null
     },
-    "Name": "Ножницы",
-    "Type": 7,
-    "NetWeight": 0.1,
+    "Name": "Женское пальто ",
+    "Type": 1,
+    "NetWeight": 1.2,
+    "Status": 0
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 2,
+    "Description": " Телевизор с высоким разрешением, технологией LED и умными функциями для отличного качества изображения и звука.",
+    "Dimensions": {
+      "Width": 1.2,
+      "Height": 0.7,
+      "Length": 0.05,
+      "ToString": "(1,2x0,7x0,05) м\u00B3"
+    },
+    "Id": 3926,
+    "IntegratingPerson": {
+      "ID": 3768,
+      "Login": "petr",
+      "Name": "Пётр",
+      "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+      "Patronymic": "Сергеевич",
+      "SurName": "Воронин",
+      "Role": 0,
+      "GetFio": "Воронин Пётр Сергеевич"
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "UltraVision Electronics",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "Телевизор",
+    "Type": 0,
+    "NetWeight": 18.5,
+    "Status": 0
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 5,
+    "Description": "Автоматическая кофемашина с функцией приготовления различных видов кофе, стильным дизайном и большим резервуаром для воды.",
+    "Dimensions": {
+      "Width": 0.2,
+      "Height": 0.3,
+      "Length": 0.4,
+      "ToString": "(0,2x0,3x0,4) м\u00B3"
+    },
+    "Id": 9090,
+    "IntegratingPerson": {
+      "ID": 3768,
+      "Login": "petr",
+      "Name": "Пётр",
+      "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+      "Patronymic": "Сергеевич",
+      "SurName": "Воронин",
+      "Role": 0,
+      "GetFio": "Воронин Пётр Сергеевич"
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "Deluxe Appliances",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "Кофемашина",
+    "Type": 10,
+    "NetWeight": 5.5,
+    "Status": 1
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 4,
+    "Description": "dasdas",
+    "Dimensions": {
+      "Width": 1,
+      "Height": 2,
+      "Length": 3,
+      "ToString": "(1x2x3) м\u00B3"
+    },
+    "Id": 8553,
+    "IntegratingPerson": {
+      "ID": 3768,
+      "Login": "petr",
+      "Name": "Пётр",
+      "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+      "Patronymic": "Сергеевич",
+      "SurName": "Воронин",
+      "Role": 0,
+      "GetFio": "Воронин Пётр Сергеевич"
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "dasd",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "assdas",
+    "Type": 0,
+    "NetWeight": 5,
+    "Status": 0
+  },
+  {
+    "Code": "21541235661",
+    "Quantity": 30,
+    "Description": "Горный велосипед с прочной рамой, амортизацией и надежной трансмиссией для активного катания в горах.",
+    "Dimensions": {
+      "Width": 0.6,
+      "Height": 1.1,
+      "Length": 1.8,
+      "ToString": "(0,6x1,1x1,8) м\u00B3"
+    },
+    "Id": 7308,
+    "IntegratingPerson": {
+      "ID": 3768,
+      "Login": "petr",
+      "Name": "Пётр",
+      "Password": "$2a$11$6uz2vUWy4ZEivSA27Eira.L9Nr.ulCpi9r9bwyYhoHgILGfSMwVhi",
+      "Patronymic": "Сергеевич",
+      "SurName": "Воронин",
+      "Role": 0,
+      "GetFio": "Воронин Пётр Сергеевич"
+    },
+    "Manufacturer": {
+      "Address": {},
+      "CompanyName": "MountainRider Bikes",
+      "Email": null,
+      "Id": 0,
+      "PhoneNumber": null
+    },
+    "Name": "Велосипед",
+    "Type": 5,
+    "NetWeight": 14.2,
     "Status": 1
   }
 ]

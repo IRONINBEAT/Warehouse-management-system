@@ -13,7 +13,7 @@ public class CustomerRepository: SerializationRepository<Customer>
     
     public static CustomerRepository GetInstance()
     {
-        return _globalRepositoryInstance ??= new CustomerRepository("../../../../data/data_set/Customers.json");
+        return _globalRepositoryInstance ??= new CustomerRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Customers.json");
     }
     public CustomerRepository(string filePath) : base(filePath)
     {

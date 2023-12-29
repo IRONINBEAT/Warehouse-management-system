@@ -36,8 +36,7 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
     
     public ProductAddingViewModel(Product product)
     {
-        _productUseCase = new ProductUseCase(
-            new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
+        _productUseCase = new ProductUseCase(ProductRepository.GetInstance());
         
         _authorizationUseCase = new AuthorizationUseCase(
             new AuthorizedUserRepository(
@@ -69,14 +68,13 @@ public class ProductAddingViewModel : ViewModelBase, IRoutableViewModel, IScreen
                     Description, Width, Height, Length, Type[SelectedIndex],
                     Weight, _authorizationUseCase.GetUser());
 
-                if (_productUseCase.ValidateProductInfo(newProduct) == ProductAddingErrors.SUCCEED &&
-                    Name == product.Name)
+                if (Name == product.Name)
                 {
                     _productUseCase.Change(newProduct);
                     return Router.Navigate.Execute(new MainWindowViewModel());
                 }
 
-                MessageBox.Show("Имя товара не соответствует исходному или иная информация введена неверно");
+                MessageBox.Show("Имя товара не соответствует исходному");
                 return Router.Navigate.Execute(new ProductAddingViewModel(product));
             }
             catch (Exception e)

@@ -7,7 +7,6 @@ namespace WMS.domain.repository;
 public interface IProduct
 {
     ProductAddingErrors Add(Product product);
-
     Product Get(int id);
     List<Product> GetAllProducts();
     void WriteOff(Product product);

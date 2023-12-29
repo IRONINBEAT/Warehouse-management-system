@@ -38,10 +38,8 @@ public class AuthorizationViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
         ToNavigate = ReactiveCommand.CreateFromObservable(() =>
         {
-            UserRepository _userRepository =
-                new UserRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Users.json");
             UserUseCase _userUseCase =
-                new UserUseCase(_userRepository);
+                new UserUseCase(UserRepository.GetInstance());
 
             AuthorizationUseCase _authorizationUseCase = new AuthorizationUseCase(
                 new AuthorizedUserRepository(

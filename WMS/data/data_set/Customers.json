@@ -46,5 +46,29 @@
     "PostalCode": "654412",
     "ResponsibilityType": 0,
     "ProductId": 6741
+  },
+  {
+    "Name": "Correct",
+    "PhoneNumber": "8-923-598-79-98",
+    "Email": "sadasg@gmail.com",
+    "Country": "Россия",
+    "City": "Срсрсрс",
+    "Street": "фыфыфыыф",
+    "HouseNumber": "12",
+    "PostalCode": "654487",
+    "ResponsibilityType": 0,
+    "ProductId": 9090
+  },
+  {
+    "Name": "sdadasdasd",
+    "PhoneNumber": "8-923-598-98-78",
+    "Email": "dsffdgdfg@hao.com",
+    "Country": "asas",
+    "City": "sdasd",
+    "Street": "asdasdasd",
+    "HouseNumber": "12",
+    "PostalCode": "654487",
+    "ResponsibilityType": 0,
+    "ProductId": 7308
   }
 ]

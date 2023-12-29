@@ -124,7 +124,7 @@ public abstract class SerializationRepository<T>
             FileMode.OpenOrCreate,
             FileAccess.ReadWrite,
             FileShare.ReadWrite,
-            4096,
+            32768,
             FileOptions.None
         );
     }

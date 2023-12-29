@@ -33,12 +33,12 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="data\data_set\qr_codes\" />
+      <None Remove="data\data_set\Images\1639327381_4-papik-pro-p-sklad-klipart-4.png" />
+      <Resource Include="data\data_set\images\1639327381_4-papik-pro-p-sklad-klipart-4.png" />
     </ItemGroup>
 
     <ItemGroup>
-      <None Remove="data\data_set\Images\1639327381_4-papik-pro-p-sklad-klipart-4.png" />
-      <Resource Include="data\data_set\images\1639327381_4-papik-pro-p-sklad-klipart-4.png" />
+      <Folder Include="data\data_set\qr_codes\" />
     </ItemGroup>
 
 </Project>

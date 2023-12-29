@@ -33,8 +33,7 @@ public class UserPageViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
     public UserPageViewModel(string fullName, Role role)
     {
-        UserUseCase _userUseCase = new UserUseCase(
-            new UserRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Users.json"));
+        UserUseCase _userUseCase = new UserUseCase(UserRepository.GetInstance());
         AuthorizedUserFullName = fullName;
         AuthorizedUserRoleEnum = role;
         AuthorizedUserRole = _userUseCase.GetEnumDescription(role);

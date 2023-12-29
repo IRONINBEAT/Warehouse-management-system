@@ -14,7 +14,7 @@ public class ProductRepository : SerializationRepository<Product>
     
     public static ProductRepository GetInstance()
     {
-        return _globalRepositoryInstance ??= new ProductRepository("../../../../data/data_set/Products.json");
+        return _globalRepositoryInstance ??= new ProductRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Products.json");
     }
     
     public void Remove(Product product)

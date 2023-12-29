@@ -37,11 +37,9 @@ public class FillingCustomerInfoViewModel : ViewModelBase, IRoutableViewModel, I
     
     public FillingCustomerInfoViewModel(int productId)
     {
-        _productUseCase = new ProductUseCase(
-            new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
+        _productUseCase = new ProductUseCase(ProductRepository.GetInstance());
         
-        CustomerUseCase _customerUseCase = new CustomerUseCase(
-            new CustomerRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Customers.json"));
+        CustomerUseCase _customerUseCase = new CustomerUseCase(CustomerRepository.GetInstance());
         
         for (int i = 0; i < Enum.GetNames(typeof(ResponsibilityType)).Length; i++)
         {
@@ -58,6 +56,7 @@ public class FillingCustomerInfoViewModel : ViewModelBase, IRoutableViewModel, I
                 var currentProduct = _productUseCase.Get(productId);
                 currentProduct.Status = ProductStatus.ON_THE_WAY_TO_CLIENT;
                 _productUseCase.Change(currentProduct);
+                _customerUseCase.Add(customer);
                 return Router.Navigate.Execute(new MainWindowViewModel());
             }
             catch (Exception e)

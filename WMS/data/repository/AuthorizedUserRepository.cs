@@ -9,7 +9,7 @@ public class AuthorizedUserRepository: SerializationRepository<User>
     
     public static UserRepository GetInstance()
     {
-        return _globalRepositoryInstance ??= new UserRepository("../../../../data/data_set/AuthorizedUserRepository.json");
+        return _globalRepositoryInstance ??= new UserRepository("../../../../data/data_set/AuthorizedUser.json");
     }
     
     public void Add(User user)

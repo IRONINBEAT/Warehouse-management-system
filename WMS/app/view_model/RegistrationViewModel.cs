@@ -34,11 +34,9 @@ public class RegistrationViewModel : ViewModelBase, IRoutableViewModel, IScreen
 
     public RegistrationViewModel()
     {
-        UserUseCase _userUseCase = new UserUseCase(
-            new UserRepository("C:\\Users\\IRONIN\\RiderProjects\\WMS\\WMS\\data\\data_set\\Users.json"));
+        UserUseCase _userUseCase = new UserUseCase(UserRepository.GetInstance());
         
-        ProductUseCase _productUseCase = new ProductUseCase(
-            new ProductRepository(@"C:\Users\IRONIN\RiderProjects\WMS\WMS\data\data_set\Products.json"));
+        ProductUseCase _productUseCase = new ProductUseCase(ProductRepository.GetInstance());
         
         
         for (int i = 0; i < 3; i++)
